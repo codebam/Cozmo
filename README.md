@@ -1,7 +1,31 @@
 # Eddie
 Eddie is a Telegram bot coded in Python, and uses the awesome [python-telegram-bot](https://python-telegram-bot.org) 
-library as a base. **Note**: Eddie is still in development, and because of this, it may or may not contain bugs. We'll
-see.
+library as a base. 
+
+**Note**: Eddie is still in development, and because of this, it may or may not contain bugs. We'll see.
+
+## Installation
+
+### Clone the repository
+```bash
+git clone https://github.com/KamranMackey/EddieBot.git
+cd EddieBot
+```
+
+### Install required dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### Mark as excutable (Linux-only!)
+```bash
+chmod +x EddieBot.py
+```
+
+### Run
+Run `EddieBot.py` once so that it can generate the `.ini` file. You will get an "Invalid token" error, but just ignore
+it. Now, edit the file, and under the Basic Settings section, set your token to the one you received from BotFather. You
+should now be able to run the bot!
 
 ## License
     Copyright © 2016 Kamran Mackey
