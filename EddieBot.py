@@ -40,7 +40,7 @@ def main():
 
     # Generate the config file as config.ini. If the file already
     # exists, do not overwrite it, as we don't want the user to
-    # lose their config.
+    # lose their existing configuration.
     if not os.path.exists('config.ini'):
         with open('config.ini', 'w') as configfile:
             config.write(configfile)
