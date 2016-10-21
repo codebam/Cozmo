@@ -5,6 +5,7 @@ library as a base.
 **Note**: Eddie is still in development, and because of this, it may or may not contain bugs. We'll see.
 
 ## Installation
+Python 3 is required for this bot to run. Python 3.5.2 or higher is recommended for the best performance.
 
 ### Clone the repository
 ```
