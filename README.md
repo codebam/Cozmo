@@ -5,9 +5,10 @@ library as a base.
 **Note**: Eddie is still in development, and because of this, it may or may not contain bugs. We'll see.
 
 ## Installation
-Python 3 is required for Eddie to run. Python 3.5.2 or higher is recommended for the best performance, and 3.6 will be
-supported whenever it comes out and whenever the Python-Telegram-Bot devs are able to update the codebase to support the
-massive changes made in 3.6.
+Python 3 is required for Eddie to run. Python 3.5.2 or higher is recommended for the best performance. 
+
+**Note regarding Python 3.6 support**: 3.6 will be supported whenever it comes out and whenever the Python-Telegram-Bot 
+devs are able to update the codebase to support the massive changes made in 3.6.
 
 ### Clone the repository
 ```
