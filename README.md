@@ -7,18 +7,18 @@ library as a base.
 ## Installation
 
 ### Clone the repository
-```bash
+```
 git clone https://github.com/KamranMackey/EddieBot.git
 cd EddieBot
 ```
 
 ### Install required dependencies
-```bash
+```
 pip install -r requirements.txt
 ```
 
 ### Mark as excutable (Linux-only!)
-```bash
+```
 chmod +x EddieBot.py
 ```
 
