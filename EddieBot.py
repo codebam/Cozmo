@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright (C) 2016
-# Kamran Mackey <kamranm1200@gmail.com>
+# Copyright (C) 2016 Kamran Mackey
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser Public License as published by
