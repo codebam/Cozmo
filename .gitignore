@@ -1,0 +1,8 @@
+# Python files
+__pycache__/
+
+# Config files
+*.ini
+
+# IntelliJ IDEA files
+.idea/
