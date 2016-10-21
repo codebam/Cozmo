@@ -1,8 +1,7 @@
 # Eddie
 Eddie is a Telegram bot coded in Python, and uses the awesome [python-telegram-bot](https://python-telegram-bot.org) 
-library as a base.
-
-Eddie is still in development and because of this, it might contain bugs, or it might not. We'll see.
+library as a base. **Note**: Eddie is still in development, and because of this, it may or may not contain bugs. We'll
+see.
 
 ## License
     Copyright © 2016 Kamran Mackey
