@@ -36,7 +36,6 @@ def main():
 
     # Create a 'Basic Settings' section and add a setting to
     # it. This is where the user's token will be stored.
-
     config['Basic Settings'] = {'token': ''}
 
     # Generate the config file as config.ini. If the file already
