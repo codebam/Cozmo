@@ -23,7 +23,7 @@ chmod +x EddieBot.py
 ```
 
 ### Run
-Run `EddieBot.py` once so that it can generate the `.ini` file. You will get an "Invalid token" error, but just ignore
+Run `EddieBot.py` once so that it can generate the `config.ini` file. You will get an "Invalid token" error, but just ignore
 it. Now, edit the file, and under the Basic Settings section, set your token to the one you received from BotFather. You
 should now be able to run the bot!
 
