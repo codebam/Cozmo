@@ -13,12 +13,13 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
+
 import os
 import platform
 from time import time
 from datetime import timedelta
 
-import psutil
+from psutil import Process
 from telegram.version import __version__ as tgver
 from telegram import ParseMode
 
@@ -55,7 +56,7 @@ def system(bot, update):
     sys_architecture = platform.machine()
 
     # psutil-specific functionality
-    process = psutil.Process(os.getpid())
+    process = Process(os.getpid())
     memory_usage = format_bytes(process.memory_info()[0])
     cpu_usage = process.cpu_percent()
     thread_count = process.num_threads()
