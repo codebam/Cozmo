@@ -14,6 +14,7 @@
 #
 # You should have received a copy of the GNU Lesser Public License
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
+import sys
 
 import configparser
 import logging
@@ -29,17 +30,18 @@ logger = logging.getLogger(__name__)
 
 
 def main():
-    # Initialize a config file, so that way the user doesn't
-    # have to worry about creating a config file manually.
+
+    # Initialize a config file, so that way the user doesn't have to worry
+    # about creating a config file manually.
     config = configparser.ConfigParser()
 
-    # Create a 'Basic Settings' section and add a setting to
-    # it. This is where the user's token will be stored.
+    # Create a 'Basic Settings' section and add a setting to it. This is
+    # where the user's token will be stored.
     config['Basic Settings'] = {'token': ''}
 
-    # Generate the config file as config.ini. If the file already
-    # exists, do not overwrite it, as we don't want the user to
-    # lose their existing configuration.
+    # Generate the config file as config.ini. If the file already exists,
+    # do not overwrite it, as we don't want the user to lose their existing
+    # configuration.
     if not os.path.exists('config.ini'):
         with open('config.ini', 'w') as configfile:
             config.write(configfile)
