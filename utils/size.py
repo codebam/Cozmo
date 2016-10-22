@@ -40,7 +40,8 @@ V = verbose
 def size(b, system=standard):
     """Human-readable file sizes.
     This uses the standard system used in things like operating systems
-    by default, but the system can be changed to verbose if desired.
+    (e.g. Windows or Linux) by default, but the system can be changed to
+    verbose if desired.
     """
     for factor, suffix in system:
         if b >= factor:
