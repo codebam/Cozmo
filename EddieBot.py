@@ -29,20 +29,18 @@ logger = logging.getLogger(__name__)
 
 
 def main():
-
-    # Initialize a config file, so that way the user doesn't have to worry
-    # about creating a config file manually.
-    config = configparser.ConfigParser()
-
-    # Create a 'Basic Settings' section and add a setting to it. This is
-    # where the user's token will be stored.
-    config['Basic Settings'] = {'token': ''}
-
-    # Generate the config file as config.ini. If the file already exists,
-    # do not overwrite it, as we don't want the user to lose their existing
-    # configuration.
     if not os.path.exists('config.ini'):
         with open('config.ini', 'w') as configfile:
+            # Initialize a config file, so that way the user doesn't have to worry
+            # about creating a config file manually.
+            config = configparser.ConfigParser(allow_no_value=True)
+            # Create a 'Basic Settings' section and add a setting to it. This is
+            # where the user's token will be stored.
+            config['Basic Settings'] = {'; This configures basic settings such as your token.\n'
+                                        'token': ''}
+            # Generate the config file as config.ini. If the file already exists,
+            # do not overwrite it, as we don't want the user to lose their existing
+            # configuration.
             config.write(configfile)
 
     config.read('config.ini')
