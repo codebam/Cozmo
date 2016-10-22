@@ -22,8 +22,6 @@ import sys
 
 from telegram.ext import CommandHandler, Updater
 
-__version__ = "0.0.1"
-
 # Check if the Python version is 3.4 or higher, otherwise the bot
 # will not run.
 minpython = (3, 4, 0)

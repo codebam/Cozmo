@@ -22,7 +22,7 @@ import psutil
 import telegram as tg
 from telegram import ParseMode
 
-import EddieBot
+import __init__
 from utils.size import size as format_bytes
 
 
@@ -31,14 +31,14 @@ def about(bot, update):
     Sends a message giving info about the bot and linking
     to the bot's source code on GitHub.
     """
+    version = __init__.__version__
     getme = bot.getMe().first_name
     bot.sendMessage(chat_id=update.message.chat_id,
                     parse_mode=ParseMode.MARKDOWN,
                     disable_web_page_preview=True,
                     text="*{}* is powered by *EddieBot* {}, the plugin-based bot written in Python 3, and "
                          "is currently running on version {} of the python-telegram-bot library.\n\n"
-                         "*Source Code*: https://github.com/KamranMackey/EddieBot".format(getme,
-                                                                                          EddieBot.__version__,
+                         "*Source Code*: https://github.com/KamranMackey/EddieBot".format(getme, version,
                                                                                           tg.version.__version__))
 
 
