@@ -1,1 +1,2 @@
 python-telegram-bot==5.1.1
+psutil==4.3.1
