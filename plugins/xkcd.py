@@ -24,13 +24,28 @@ def xkcd(bot, update, args):
         xkcd = requests.get('https://xkcd.com/%s/info.0.json' % num).text
         xkcd = json.loads(xkcd)
 
-        bot.sendPhoto(chat_id=update.message.chat_id, photo=xkcd['img'])
+        title = xkcd['title']
+        alt = xkcd['alt']
+
+        # also sending the 'num' is too redundant in this case
+        caption = '{0} - {1}'.format(title, alt)
+        bot.sendPhoto(chat_id=update.message.chat_id,
+                      photo=xkcd['img'], caption=caption)
     except ValueError:
         # NaN
-        bot.sendMessage(chat_id=update.message.chat_id, text='`/xkcd <num>`', parse_mode='Markdown')
+        bot.sendMessage(chat_id=update.message.chat_id,
+                        text='`/xkcd <num>`', parse_mode='Markdown')
     except IndexError:
         # num not given, send latest
         xkcd = requests.get('https://xkcd.com/info.0.json').text
         xkcd = json.loads(xkcd)
 
-        bot.sendPhoto(chat_id=update.message.chat_id, photo=xkcd['img'])
+        num = xkcd['num']
+
+        title = xkcd['title']
+        alt = xkcd['alt']
+
+        caption = '{0} - {1} - {2}'.format(num, title, alt)
+
+        bot.sendPhoto(chat_id=update.message.chat_id,
+                      photo=xkcd['img'], caption=caption)
