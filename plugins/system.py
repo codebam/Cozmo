@@ -38,7 +38,7 @@ def about(bot, update):
 
 def system(bot, update):
     """Send a message containing information about the system
-    running the bot. Also contain information about the bot's
+    running the bot. Also contains information about the bot's
     process.
     """
 
