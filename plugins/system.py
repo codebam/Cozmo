@@ -18,12 +18,11 @@ import platform
 import time
 from datetime import timedelta
 
-from utils.size import size as format_bytes
-
 import psutil
 from telegram import ParseMode
 
 import EddieBot
+from utils.size import size as format_bytes
 
 
 def about(bot, update):
