@@ -21,7 +21,6 @@ from datetime import timedelta
 
 from psutil import Process
 from telegram import __version__ as tgver
-from telegram import ParseMode
 
 from __init__ import __version__
 from utils.size import size as format_bytes
@@ -35,7 +34,7 @@ def about(bot, update):
     version = __version__
     getme = bot.getMe().first_name
     bot.sendMessage(chat_id=update.message.chat_id,
-                    parse_mode=ParseMode.MARKDOWN,
+                    parse_mode='Markdown',
                     disable_web_page_preview=True,
                     text="*{}* is powered by *EddieBot* {}, the plugin-based bot written in Python 3, and "
                          "is currently running on version {} of the python-telegram-bot library.\n\n"
@@ -57,13 +56,14 @@ def system(bot, update):
 
     # psutil-specific functionality
     process = Process(os.getpid())
+    # TODO: Make this work on *nix
     memory_usage = format_bytes(process.memory_info()[0])
     cpu_usage = process.cpu_percent()
     thread_count = process.num_threads()
     uptime = timedelta(seconds=round(time() - process.create_time()))
 
     bot.sendMessage(chat_id=update.message.chat_id,
-                    parse_mode=ParseMode.MARKDOWN,
+                    parse_mode='Markdown',
                     text="*Basic Info*:\n\n"
                          "*OS*: {} {}\n"
                          "*Python Version*: {}\n"
