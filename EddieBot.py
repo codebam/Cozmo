@@ -29,7 +29,6 @@ logger = logging.getLogger(__name__)
 
 
 def main():
-
     # Initialize a config file, so that way the user doesn't have to worry
     # about creating a config file manually.
     config = configparser.ConfigParser(allow_no_value=True)
