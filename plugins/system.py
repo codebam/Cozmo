@@ -15,11 +15,11 @@
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
 import os
 import platform
-import time
+from time import time
 from datetime import timedelta
 
 import psutil
-import telegram as tg
+from telegram import version as tgver
 from telegram import ParseMode
 
 import __init__
@@ -38,8 +38,8 @@ def about(bot, update):
                     disable_web_page_preview=True,
                     text="*{}* is powered by *EddieBot* {}, the plugin-based bot written in Python 3, and "
                          "is currently running on version {} of the python-telegram-bot library.\n\n"
-                         "*Source Code*: https://github.com/KamranMackey/EddieBot".format(getme, version,
-                                                                                          tg.version.__version__))
+                         "*Source Code*: https://github.com/KamranMackey/EddieBot".format(getme, tgver,
+                                                                                          version.__version__))
 
 
 def system(bot, update):
@@ -59,7 +59,7 @@ def system(bot, update):
     memory_usage = format_bytes(process.memory_info()[0])
     cpu_usage = process.cpu_percent()
     thread_count = process.num_threads()
-    uptime = timedelta(seconds=round(time.time() - process.create_time()))
+    uptime = timedelta(seconds=round(time() - process.create_time()))
 
     bot.sendMessage(chat_id=update.message.chat_id,
                     parse_mode=ParseMode.MARKDOWN,
