@@ -46,6 +46,9 @@ def system(bot, update):
     """
     Sends a message containing information about the system
     running the bot and the bot's process itself.
+
+    Note: This command currently throws errors on *nix. Looking
+    at a fix for this issue. Until then, avoid using this command.
     """
 
     # Get general system info
