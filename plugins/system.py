@@ -20,7 +20,7 @@ from time import time
 from datetime import timedelta
 
 from psutil import Process
-from telegram.version import __version__ as tgver
+from telegram import __version__ as tgver
 from telegram import ParseMode
 
 from __init__ import __version__
