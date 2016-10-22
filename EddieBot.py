@@ -67,7 +67,7 @@ def main():
     from plugins.system import about
     from plugins.system import system
     from plugins.me import me
-    from plugins.xkcd import xkcd
+    from plugins.xkcd import xkcd_plugin as xkcd
 
     dp.add_handler(CommandHandler('about', about))
     dp.add_handler(CommandHandler('system', system))
