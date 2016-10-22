@@ -32,12 +32,12 @@ def xkcd_plugin(bot, update, args):
         bot.sendPhoto(chat_id=update.message.chat_id,
                       photo=xkcd['img'], caption=caption)
     except ValueError:
-        # NaN
+        # Send an error message if the ID format is wrong.
         bot.sendMessage(chat_id=update.message.chat_id,
-                        text="`Error: Improper format of xkcd ID. Only numbers are allowed.\n\n"
-                             "Example xkcd ID: 378`", parse_mode='Markdown')
+                        text="`Error: Improper format of xkcd ID. IDs are numeric. Please enter "
+                             "a numeric ID.\n\nExample xkcd ID: 378`", parse_mode='Markdown')
     except IndexError:
-        # num not given, send latest
+        # If ID is not given, send the latest xkcd image.
         xkcd = requests.get('https://xkcd.com/info.0.json').text
         xkcd = json.loads(xkcd)
 
