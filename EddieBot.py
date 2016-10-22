@@ -15,19 +15,19 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
 
-import configparser
+from configparser import ConfigParser
 import logging
-import os
-import sys
+from os.path import exists
+from sys import version_info, exit
 
 from telegram.ext import CommandHandler, Updater
 
 # Check if the Python version is 3.4 or higher, otherwise the bot
 # will not run.
 minpython = (3, 4, 0)
-if sys.version_info < minpython:
+if version_info < minpython:
     print("Python 3.4 or later is required. Please update your Python version.")
-    sys.exit(1)
+    exit(1)
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -39,7 +39,7 @@ logger = logging.getLogger(__name__)
 def main():
     # Initialize a config file, so that way the user doesn't have to worry
     # about creating a config file manually.
-    config = configparser.ConfigParser(allow_no_value=True)
+    config = ConfigParser(allow_no_value=True)
 
     # Create a 'Basic Settings' section and add a setting to it. This is
     # where the user's token will be stored.
@@ -49,7 +49,7 @@ def main():
     # Generate the config file as config.ini. If the file already exists,
     # do not overwrite it, as we don't want the user to lose their existing
     # configuration.
-    if not os.path.exists('config.ini'):
+    if not exists('config.ini'):
         with open('config.ini', 'w') as configfile:
             config.write(configfile)
 
