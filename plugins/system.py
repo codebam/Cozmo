@@ -26,6 +26,9 @@ from utils.size import size as format_bytes
 
 
 def about(bot, update):
+    """Send a message giving info about the bot and contain
+    a link to the bot's source code.
+    """
     bot.sendMessage(chat_id=update.message.chat_id,
                     parse_mode=ParseMode.MARKDOWN,
                     disable_web_page_preview=True,
@@ -34,6 +37,10 @@ def about(bot, update):
 
 
 def system(bot, update):
+    """Retrieves information about the system running the bot.
+    Also retrieves information about the bot's process.
+    """
+
     # Get general system info
     sys_os = (platform.system())
     sys_version = ''.join(platform.version())
