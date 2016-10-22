@@ -13,8 +13,14 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
+import os
 import platform
+import time
+from datetime import timedelta
 
+from utils.size import size as format_bytes
+
+import psutil
 from telegram import ParseMode
 
 import EddieBot
@@ -32,17 +38,31 @@ def system(bot, update):
     # Get general system info
     sys_os = (platform.system())
     sys_version = ''.join(platform.version())
-    python_implementation = platform.python_implementation()
     python_version = platform.python_version()
     sys_architecture = platform.machine()
+
+    # psutil-specific functionality
+    process = psutil.Process(os.getpid())
+    memory_usage = format_bytes(process.memory_info()[0])
+    cpu_usage = process.cpu_percent()
+    thread_count = process.num_threads()
+    uptime = timedelta(seconds=round(time.time() - process.create_time()))
 
     bot.sendMessage(chat_id=update.message.chat_id,
                     parse_mode=ParseMode.MARKDOWN,
                     text="*Basic Info*:\n\n"
                          "*OS*: {} {}\n"
-                         "*Python*: {} {}\n"
-                         "*Architecture*: {}".format(sys_os,
+                         "*Python Version*: {}\n"
+                         "*Architecture*: {}\n\n"
+                         "*Bot-specific Info*:\n\n"
+                         "*Uptime*: {}\n"
+                         "*Threads*: {}\n"
+                         "*CPU Usage*: {}\n"
+                         "*Memory Usage:* {}".format(sys_os,
                                                      sys_version,
-                                                     python_implementation,
                                                      python_version,
-                                                     sys_architecture))
+                                                     sys_architecture,
+                                                     uptime,
+                                                     thread_count,
+                                                     cpu_usage,
+                                                     memory_usage))
