@@ -15,12 +15,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
 
-from telegram.ext import Updater
-
 import configparser
 import logging
 import os
 import sys
+
+from telegram.ext import Updater
 
 # Check if the Python version is 3.4 or higher, otherwise the bot
 # will not run.
