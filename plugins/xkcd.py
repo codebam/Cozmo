@@ -18,7 +18,7 @@ import requests
 import json
 
 
-def xkcd(bot, update, args):
+def xkcd_plugin(bot, update, args):
     try:
         num = int(args[0])
         xkcd = requests.get('https://xkcd.com/%s/info.0.json' % num).text
