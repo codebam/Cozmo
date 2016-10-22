@@ -16,7 +16,7 @@
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
 
 from configparser import ConfigParser
-import logging
+from logging import basicConfig, getLogger, INFO
 from os.path import exists
 from sys import version_info, exit
 
@@ -30,10 +30,10 @@ if version_info < minpython:
     exit(1)
 
 # Enable logging
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
+basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+            level=INFO)
 
-logger = logging.getLogger(__name__)
+logger = getLogger(__name__)
 
 
 def main():
