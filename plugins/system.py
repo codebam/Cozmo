@@ -38,8 +38,8 @@ def about(bot, update):
 
 def system(bot, update):
     """Send a message containing information about the system
-    running the bot and also retrieves information about the
-    bot's process.
+    running the bot. Also contain information about the bot's
+    process.
     """
 
     # Get general system info
