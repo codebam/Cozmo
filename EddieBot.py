@@ -66,8 +66,11 @@ def main():
     # Register plugins and their commands
     from plugins.system import about
     from plugins.system import system
+    from plugins.me import me
+
     dp.add_handler(CommandHandler('about', about))
     dp.add_handler(CommandHandler('system', system))
+    dp.add_handler(CommandHandler('me', me, pass_args=True))
 
     def error(update, err):
         logger.warn('Update "%s" caused error "%s"' % (update, err))
