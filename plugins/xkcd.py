@@ -19,4 +19,18 @@ import json
 
 
 def xkcd(bot, update, args):
-    bot.sendMessage(chat_id=update.message.chat_id, text='`/xkcd <num>`', parse_mode='Markdown')
+    try:
+        num = int(args[0])
+        xkcd = requests.get('https://xkcd.com/%s/info.0.json' % num).text
+        xkcd = json.loads(xkcd)
+
+        bot.sendPhoto(chat_id=update.message.chat_id, photo=xkcd['img'])
+    except ValueError:
+        # NaN
+        bot.sendMessage(chat_id=update.message.chat_id, text='`/xkcd <num>`', parse_mode='Markdown')
+    except IndexError:
+        # num not given, send latest
+        xkcd = requests.get('https://xkcd.com/info.0.json').text
+        xkcd = json.loads(xkcd)
+
+        bot.sendPhoto(chat_id=update.message.chat_id, photo=xkcd['img'])
