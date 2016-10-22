@@ -20,7 +20,7 @@ import logging
 import os
 import sys
 
-from telegram.ext import Updater
+from telegram.ext import CommandHandler, Updater
 
 __version__ = "0.0.1"
 
@@ -65,13 +65,19 @@ def main():
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
 
+    # Register plugins and their commands
+    from plugins.system import about
+    from plugins.system import system
+    dp.add_handler(CommandHandler('about', about))
+    dp.add_handler(CommandHandler('system', system))
+
     def error(update, err):
         logger.warn('Update "%s" caused error "%s"' % (update, err))
 
-    # log all errors
+    # Create an error handler
     dp.add_error_handler(error)
 
-    # Start the bot
+    # Start polling for updates
     updater.start_polling()
 
     # Run the bot until the you presses Ctrl-C or the process receives SIGINT,
