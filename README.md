@@ -5,7 +5,7 @@ library as a base.
 **Note**: Eddie is still in development, and because of this, it may or may not contain bugs. We'll see.
 
 ## Installation
-Python 3 is required for Eddie to run. Python 3.5.2 or higher is recommended for the best performance. 
+Python 3.4 or later is required for Eddie to run. I personally recommend Python 3.5.2 for the best performance. 
 
 **Note regarding Python 3.6 support**: 3.6 has no breaking changes in syntax and as such, Eddie will be compatible with
 3.6 on release.
