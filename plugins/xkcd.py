@@ -34,7 +34,8 @@ def xkcd_plugin(bot, update, args):
     except ValueError:
         # NaN
         bot.sendMessage(chat_id=update.message.chat_id,
-                        text='`/xkcd <num>`', parse_mode='Markdown')
+                        text="`Error: Improper format of xkcd ID. Only numbers are allowed.\n\n"
+                             "Example xkcd ID: 378`", parse_mode='Markdown')
     except IndexError:
         # num not given, send latest
         xkcd = requests.get('https://xkcd.com/info.0.json').text
