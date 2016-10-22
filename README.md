@@ -32,7 +32,7 @@ Run `EddieBot.py` once so that it can generate the `config.ini` file. You will g
 set your token to the one you received from BotFather. You should now be able to run the bot!
 
 ## License
-    Copyright © 2016 Kamran Mackey
+    Copyright © 2016 Kamran Mackey and contributors
     
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
