@@ -19,6 +19,7 @@ import time
 from datetime import timedelta
 
 import psutil
+import telegram as tg
 from telegram import ParseMode
 
 import EddieBot
@@ -33,8 +34,11 @@ def about(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id,
                     parse_mode=ParseMode.MARKDOWN,
                     disable_web_page_preview=True,
-                    text="This bot is powered by *EddieBot* {}, the plugin-based bot written in Python 3.\n\n"
-                         "*Source Code*: https://github.com/KamranMackey/EddieBot".format(EddieBot.__version__))
+                    text="*{}* is powered by *EddieBot* {}, the plugin-based bot written in Python 3, and "
+                         "is currently running on version {} of the python-telegram-bot library.\n\n"
+                         "*Source Code*: https://github.com/KamranMackey/EddieBot".format(bot.getMe().first_name,
+                                                                                          EddieBot.__version__,
+                                                                                          tg.version.__version__))
 
 
 def system(bot, update):
