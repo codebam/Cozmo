@@ -23,10 +23,10 @@ import sys
 from telegram.ext import Updater
 
 __version__ = "0.0.1"
-minpython = (3, 4)
 
 # Check if the Python version is 3.4 or higher, otherwise the bot
 # will not run.
+minpython = (3, 4, 0)
 if sys.version_info < minpython:
     print("Python 3.4 or later is required. Please update your Python version.")
     sys.exit(1)
