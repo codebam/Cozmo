@@ -26,7 +26,8 @@ from utils.size import size as format_bytes
 
 
 def about(bot, update):
-    """Send a message giving info about the bot and contain
+    """
+    Send a message giving info about the bot and contain
     a link to the bot's source code.
     """
     bot.sendMessage(chat_id=update.message.chat_id,
@@ -37,7 +38,8 @@ def about(bot, update):
 
 
 def system(bot, update):
-    """Send a message containing information about the system
+    """
+    Send a message containing information about the system
     running the bot. Also contains information about the bot's
     process.
     """
