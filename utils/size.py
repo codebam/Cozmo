@@ -14,12 +14,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
 
-import configparser
-
-config = configparser.ConfigParser()
-
-config.read('config.ini')
-
 standard = [
     (1024 ** 5, ' PB'),
     (1024 ** 4, ' TB'),
@@ -43,13 +37,12 @@ S = standard
 V = verbose
 
 
-def size(b, size_system=config.get('Advanced Settings', 'size_system')):
+def size(b, system=standard):
     """Human-readable file sizes.
     This uses the standard system used in things like operating systems
-    by default, but the system can be changed to verbose if desired in the
-    configuration file.
+    by default, but the system can be changed to verbose if desired.
     """
-    for factor, suffix in size_system:
+    for factor, suffix in system:
         if b >= factor:
             break
     amount = int(b / factor)

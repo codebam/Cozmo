@@ -47,9 +47,6 @@ def main():
     # where the user's token will be stored.
     config['Basic Settings'] = {'; This configures basic settings such as your token.\n'
                                 'token': ''}
-    config['Advanced Settings'] = {'; These are advanced settings not meant for users '
-                                   'who are not familiar with these settings.\n'
-                                   'size_system': 'standard'}
 
     # Generate the config file as config.ini. If the file already exists,
     # do not overwrite it, as we don't want the user to lose their existing
