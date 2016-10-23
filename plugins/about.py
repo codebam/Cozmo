@@ -27,8 +27,9 @@ def about(bot, update):
     get_me = bot.getMe().first_name
     update.message.reply_text(parse_mode='Markdown',
                               disable_web_page_preview=True,
-                              text="*{}* is powered by *EddieBot* {}, the plugin-based bot built by @l3thal and @xenial. It is written"
-                                   " in the Python programming language.\n\n*python-telegram-bot version*: {}\n"
+                              text="*{}* is powered by *EddieBot* {}, the plugin-based bot built by @l3thal"
+                                   " and @xenial. It is written in the Python programming language."
+                                   "\n\n*python-telegram-bot version*: {}\n"
                                    "*Source Code*: https://github.com/KamranMackey/EddieBot".format(get_me,
                                                                                                     botver,
                                                                                                     tgver))
