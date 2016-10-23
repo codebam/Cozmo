@@ -32,13 +32,15 @@ def about(bot, update):
     to the bot's source code on GitHub.
     """
     version = __version__
-    getme = bot.getMe().first_name
+    get_me = bot.getMe().first_name
     bot.sendMessage(chat_id=update.message.chat_id,
                     parse_mode='Markdown',
                     disable_web_page_preview=True,
                     text="*{}* is powered by *EddieBot* {}, the plugin-based bot written in Python 3, and "
                          "is currently running on version {} of the python-telegram-bot library.\n\n"
-                         "*Source Code*: https://github.com/KamranMackey/EddieBot".format(getme, version, tgver))
+                         "*Source Code*: https://github.com/KamranMackey/EddieBot".format(get_me,
+                                                                                          version,
+                                                                                          tgver))
 
 
 def system(bot, update):
