@@ -76,6 +76,9 @@ def main():
     from plugins.xkcd import xkcd_plugin as xkcd
     dp.add_handler(CommandHandler('xkcd', xkcd, pass_args=True))
 
+    from plugins.id import id_plugin
+    dp.add_handler(CommandHandler('id', id_plugin))
+
     from plugins.start import start
     dp.add_handler(CommandHandler('start', start))
 
