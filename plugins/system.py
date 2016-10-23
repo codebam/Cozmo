@@ -23,7 +23,7 @@ from time import time
 from psutil import Process
 from telegram import __version__ as tgver
 
-from __init__ import __version__ as botver
+from init import __version__ as botver
 from utils.size import size as format_bytes
 
 
