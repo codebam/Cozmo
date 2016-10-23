@@ -38,8 +38,7 @@ def about(bot, update):
                     disable_web_page_preview=True,
                     text="*{}* is powered by *EddieBot* {}, the plugin-based bot written in Python 3, and "
                          "is currently running on version {} of the python-telegram-bot library.\n\n"
-                         "*Source Code*: https://github.com/KamranMackey/EddieBot".format(getme, version,
-                                                                                          tgver))
+                         "*Source Code*: https://github.com/KamranMackey/EddieBot".format(getme, version, tgver))
 
 
 def system(bot, update):
@@ -60,7 +59,6 @@ def system(bot, update):
 
     # psutil-specific functionality
     process = Process(os.getpid())
-    # TODO: Make this work on *nix
     memory_usage = format_bytes(process.memory_info()[0])
     cpu_usage = process.cpu_percent()
     thread_count = process.num_threads()
