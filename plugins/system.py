@@ -88,7 +88,7 @@ def system(bot, update):
                                                       thread_count,
                                                       cpu_usage,
                                                       ram_usage))
-    elif sys.platform == '':
+    elif sys.platform == 'linux':
         bot.sendMessage(chat_id=update.message.chat_id,
                         parse_mode='Markdown',
                         text="*Basic Info*:\n\n"
