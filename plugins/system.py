@@ -17,7 +17,6 @@
 import platform
 from datetime import timedelta
 from os import getpid
-import sys
 from time import time
 
 from psutil import Process
