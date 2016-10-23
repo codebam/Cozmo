@@ -36,8 +36,9 @@ def xkcd_plugin(bot, update, args):
     except ValueError:
         # Send an error message if the ID format is wrong.
         bot.sendMessage(chat_id=update.message.chat_id,
+                        parse_mode='Markdown',
                         text="`Error: Improper format of xkcd ID. IDs are numeric. Please enter "
-                             "a numeric ID.\n\nExample xkcd ID: 378`", parse_mode='Markdown')
+                             "a numeric ID.\n\nExample xkcd ID: 378`")
     except IndexError:
         # If ID is not given, send the latest xkcd image.
         xkcd = get(base_url + "info.0.json").text
