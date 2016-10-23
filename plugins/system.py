@@ -91,5 +91,5 @@ def system(bot, update):
     elif sys.platform == 'linux':
         bot.sendMessage(chat_id=update.message.chat_id,
                         parse_mode='Markdown',
-                        text="Not supported on the platform the bot is running on. (Platform: {}).".format(
+                        text="Not supported on the platform this bot is running on. (*Platform*: {})".format(
                             sys.platform))
