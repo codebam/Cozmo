@@ -88,8 +88,8 @@ def system(bot, update):
                                                       thread_count,
                                                       cpu_usage,
                                                       ram_usage))
-    elif sys.platform == 'linux':
+    else:
         bot.sendMessage(chat_id=update.message.chat_id,
                         parse_mode='Markdown',
-                        text="Not supported on the platform this bot is running on. (*Platform*: {})".format(
-                            sys.platform.title()))
+                        text="Sorry, but this command is only supported if this bot is running on Windows. "
+                             "This bot is running on *{}*".format(sys.platform))
