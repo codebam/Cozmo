@@ -91,15 +91,4 @@ def system(bot, update):
     elif sys.platform == 'linux':
         bot.sendMessage(chat_id=update.message.chat_id,
                         parse_mode='Markdown',
-                        text="*Basic Info*:\n\n"
-                             "*OS*: {} {}\n"
-                             "*Python Version*: {}\n"
-                             "*Architecture*: {}\n\n"
-                             "*Bot-specific Info*:\n\n"
-                             "*Uptime*: {}\n"
-                             "*Threads*: {}".format(sys_os,
-                                                    sys_version,
-                                                    python_version,
-                                                    sys_architecture,
-                                                    uptime,
-                                                    thread_count))
+                        text="Not supported!")
