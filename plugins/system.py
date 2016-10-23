@@ -36,7 +36,7 @@ def about(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id,
                     parse_mode='Markdown',
                     disable_web_page_preview=True,
-                    text="*{}* is powered by *EddieBot* {}, the plugin-based bot built by @colors4dayz and written "
+                    text="*{}* is powered by *EddieBot* {}, the plugin-based bot built by @colourIess and written "
                          "in the Python programming language.\n\n*python-telegram-bot version*: {}\n"
                          "*Source Code*: https://github.com/KamranMackey/EddieBot".format(get_me,
                                                                                           botver,
