@@ -25,6 +25,10 @@ pip install -r requirements.txt
 ```
 chmod +x EddieBot.py
 ```
+Or, if you don't want to mess with file permissions, you can also do this:
+```
+python EddieBot.py
+```
 
 ### Run
 Run `EddieBot.py` once so that it can generate the `config.ini` file. You will get an "Invalid token" error due to the 
