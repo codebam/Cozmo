@@ -63,9 +63,6 @@ def main():
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
 
-    def start(bot, update):
-        bot.sendMessage
-
     # Register plugins and their commands
     from plugins.system import about
     from plugins.system import system
