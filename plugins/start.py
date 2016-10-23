@@ -22,5 +22,5 @@ def start(bot, update):
     """
     bot.sendMessage(chat_id=update.message.chat_id,
                     parse_mode='Markdown',
-                    disable_web_page_preview=True,
-                    text="Hi! Please enter /about to view information about me.")
+                    text="Hi, I'm *{}*! Please enter /about to view information about me.".format(
+                        bot.getMe().first_name))
