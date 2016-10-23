@@ -21,7 +21,6 @@ base_url = "http://xkcd.com/"
 
 
 def xkcd_plugin(bot, update, args):
-
     try:
         num = int(args[0])
         xkcd = requests.get(base_url + "%s/info.0.json" % num).text
