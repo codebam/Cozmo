@@ -17,7 +17,7 @@
 
 def id_plugin(_, update):
     """
-    Simple plugin used for retreiving a user's ID by doing
+    Simple plugin used for retrieving a user's ID by doing
     the /id command.
     """
     uname = update.message.from_user.first_name

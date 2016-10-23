@@ -21,5 +21,5 @@ def start(bot, update):
     here folks.
     """
     update.message.reply_text(parse_mode='Markdown',
-                              text="Hi, I'm *{}*! Please enter /about to view information about me.".format(
+                              text="Hi, I'm *{0}*! Please enter /about to view information about me.".format(
                                   bot.getMe().first_name))
