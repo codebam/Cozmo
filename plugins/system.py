@@ -62,6 +62,9 @@ def system(bot, update):
 
     # psutil-specific functionality
     process = Process(getpid())
+
+    memory_usage = format_bytes(process.memory_info()[0])
+
     cpu_usage = process.cpu_percent()
     thread_count = process.num_threads()
     uptime = timedelta(seconds=round(time() - process.create_time()))
@@ -75,10 +78,12 @@ def system(bot, update):
                          "*Bot-specific Info*:\n\n"
                          "*Uptime*: {}\n"
                          "*Threads*: {}\n"
-                         "*CPU Usage*: {}".format(sys_os,
-                                                  sys_version,
-                                                  python_version,
-                                                  sys_architecture,
-                                                  uptime,
-                                                  thread_count,
-                                                  cpu_usage))
+                         "*CPU Usage*: {}\n"
+                         "*Memory Usage:* {}".format(sys_os,
+                                                     sys_version,
+                                                     python_version,
+                                                     sys_architecture,
+                                                     uptime,
+                                                     thread_count,
+                                                     cpu_usage,
+                                                     memory_usage))
