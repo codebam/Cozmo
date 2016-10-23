@@ -63,6 +63,9 @@ def main():
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
 
+    def start(bot, update):
+        bot.sendMessage
+
     # Register plugins and their commands
     from plugins.system import about
     from plugins.system import system
@@ -76,8 +79,11 @@ def main():
     from plugins.xkcd import xkcd_plugin as xkcd
     dp.add_handler(CommandHandler('xkcd', xkcd, pass_args=True))
 
-    def error(_, update, error):
-        logger.warn('Update "%s" caused error "%s"' % (update, error))
+    from plugins.start import start
+    dp.add_handler(CommandHandler('start', start))
+
+    def error(_, update, err):
+        logger.warn('Update "%s" caused error "%s"' % (update, err))
 
     # Create an error handler
     dp.add_error_handler(error)
