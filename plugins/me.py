@@ -15,9 +15,9 @@
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
 
 
-def me(bot, update, args):
+def me(_, update, args):
     args = ' '.join(args)
     user = update.message.from_user.first_name
 
-    bot.sendMessage(chat_id=update.message.chat_id,
-                    text='*{0}* {1}'.format(user, args), parse_mode='Markdown')
+    update.message.reply_text(parse_mode='Markdown',
+                              text='*{0}* {1}'.format(user, args))
