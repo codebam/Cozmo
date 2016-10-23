@@ -16,6 +16,7 @@
 
 import platform
 from datetime import timedelta
+import sys
 from os import getpid
 from time import time
 
@@ -62,27 +63,43 @@ def system(bot, update):
     # psutil-specific functionality
     process = Process(getpid())
 
-    memory_usage = format_bytes(process.memory_info()[0])
+    ram_usage = format_bytes(process.memory_info()[0])
 
     cpu_usage = process.cpu_percent()
     thread_count = process.num_threads()
     uptime = timedelta(seconds=round(time() - process.create_time()))
 
-    bot.sendMessage(chat_id=update.message.chat_id,
-                    parse_mode='Markdown',
-                    text="*Basic Info*:\n\n"
-                         "*OS*: {} {}\n"
-                         "*Python Version*: {}\n"
-                         "*Architecture*: {}\n\n"
-                         "*Bot-specific Info*:\n\n"
-                         "*Uptime*: {}\n"
-                         "*Threads*: {}\n"
-                         "*CPU Usage*: {}\n"
-                         "*Memory Usage:* {}".format(sys_os,
-                                                     sys_version,
-                                                     python_version,
-                                                     sys_architecture,
-                                                     uptime,
-                                                     thread_count,
-                                                     cpu_usage,
-                                                     memory_usage))
+    if sys.platform == 'win32':
+        bot.sendMessage(chat_id=update.message.chat_id,
+                        parse_mode='Markdown',
+                        text="*Basic Info*:\n\n"
+                             "*OS*: {} {}\n"
+                             "*Python Version*: {}\n"
+                             "*Architecture*: {}\n\n"
+                             "*Bot-specific Info*:\n\n"
+                             "*Uptime*: {}\n"
+                             "*Threads*: {}\n"
+                             "*CPU Usage*: {}\n"
+                             "*RAM Usage:* {}".format(sys_os,
+                                                      sys_version,
+                                                      python_version,
+                                                      sys_architecture,
+                                                      uptime,
+                                                      thread_count,
+                                                      cpu_usage,
+                                                      ram_usage))
+    elif sys.platform == '':
+        bot.sendMessage(chat_id=update.message.chat_id,
+                        parse_mode='Markdown',
+                        text="*Basic Info*:\n\n"
+                             "*OS*: {} {}\n"
+                             "*Python Version*: {}\n"
+                             "*Architecture*: {}\n\n"
+                             "*Bot-specific Info*:\n\n"
+                             "*Uptime*: {}\n"
+                             "*Threads*: {}".format(sys_os,
+                                                    sys_version,
+                                                    python_version,
+                                                    sys_architecture,
+                                                    uptime,
+                                                    thread_count))
