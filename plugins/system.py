@@ -92,4 +92,4 @@ def system(bot, update):
         bot.sendMessage(chat_id=update.message.chat_id,
                         parse_mode='Markdown',
                         text="Sorry, but this command is only supported if the bot is running on Windows. "
-                             "This bot is running on *{}*.".format(sys.platform.title()))
+                             "Currently running on *{}*.".format(sys.platform.title()))
