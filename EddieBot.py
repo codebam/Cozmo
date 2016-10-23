@@ -76,8 +76,8 @@ def main():
     from plugins.xkcd import xkcd_plugin as xkcd
     dp.add_handler(CommandHandler('xkcd', xkcd, pass_args=True))
 
-    def error(update, err):
-        logger.warn('Update "%s" caused error "%s"' % (update, err))
+    def error(_, update, error):
+        logger.warn('Update "%s" caused error "%s"' % (update, error))
 
     # Create an error handler
     dp.add_error_handler(error)
