@@ -14,10 +14,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
 
-from os import getpid
 import platform
-from time import time
 from datetime import timedelta
+from os import getpid
+from time import time
 
 from psutil import Process
 from telegram import __version__ as tgver
