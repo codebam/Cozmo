@@ -104,6 +104,4 @@ def system(bot, update):
                                                       sys_architecture,
                                                       uptime,
                                                       thread_count,
-                                                      cpu_usage,
-                                                      ram_usage))
-
+                                                      cpu_usage))
