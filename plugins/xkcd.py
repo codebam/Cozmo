@@ -17,11 +17,14 @@
 import requests
 import json
 
+base_url = "http://xkcd.com/"
+
 
 def xkcd_plugin(bot, update, args):
+
     try:
         num = int(args[0])
-        xkcd = requests.get('https://xkcd.com/%s/info.0.json' % num).text
+        xkcd = requests.get(base_url + "%s/info.0.json" % num).text
         xkcd = json.loads(xkcd)
 
         title = xkcd['title']
@@ -38,7 +41,7 @@ def xkcd_plugin(bot, update, args):
                              "a numeric ID.\n\nExample xkcd ID: 378`", parse_mode='Markdown')
     except IndexError:
         # If ID is not given, send the latest xkcd image.
-        xkcd = requests.get('https://xkcd.com/info.0.json').text
+        xkcd = requests.get(base_url + "info.0.json").text
         xkcd = json.loads(xkcd)
 
         num = xkcd['num']
