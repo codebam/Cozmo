@@ -91,5 +91,5 @@ def system(bot, update):
     else:
         bot.sendMessage(chat_id=update.message.chat_id,
                         parse_mode='Markdown',
-                        text="Sorry, but this command is only supported if the bot is running on Windows. "
-                             "Currently running on *{}*.".format(sys.platform.title()))
+                        text="Sorry, but this command is only supported if the bot is running on Windows due to issues "
+                             "with the psutil library.")
