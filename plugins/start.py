@@ -20,7 +20,6 @@ def start(bot, update):
     Create a basic start command. Nothing fancy
     here folks.
     """
-    bot.sendMessage(chat_id=update.message.chat_id,
-                    parse_mode='Markdown',
-                    text="Hi, I'm *{}*! Please enter /about to view information about me.".format(
-                        bot.getMe().first_name))
+    update.message.reply_text(parse_mode='Markdown',
+                              text="Hi, I'm *{}*! Please enter /about to view information about me.".format(
+                                  bot.getMe().first_name))
