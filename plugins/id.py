@@ -20,9 +20,10 @@ def id_plugin(_, update):
     Simple plugin used for retrieving a user's ID by doing
     the /id command.
     """
-    uname = update.message.from_user.first_name
+    name = update.message.from_user.first_name
     uid = update.message.from_user.id
 
     update.message.reply_text(parse_mode='Markdown',
                               quote=True,
-                              text="You are *{0}* with ID `{1}`.".format(uname, uid))
+                              text="You are *{0}* with ID `{1}`.".format(name,
+                                                                         uid))
