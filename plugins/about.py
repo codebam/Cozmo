@@ -30,6 +30,6 @@ def about(bot, update):
                               text="*{0}* is powered by *EddieBot* {1}, the plugin-based bot built by @l3thal"
                                    " and @xenial. It is written in the Python programming language."
                                    "\n\n*python-telegram-bot version*: {2}\n"
-                                   "*Source Code*: https://github.com/KamranMackey/EddieBot".format(get_me,
-                                                                                                    botver,
-                                                                                                    tgver))
+                                   "*Source Code*: [GitHub`](https://github.com/KamranMackey/EddieBot)".format(get_me,
+                                                                                                             botver,
+                                                                                                             tgver))
