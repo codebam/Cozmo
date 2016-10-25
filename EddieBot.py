@@ -18,16 +18,16 @@
 import logging as log
 from configparser import ConfigParser
 from os.path import exists
-from sys import version_info, exit
+import sys
 
 from telegram.ext import CommandHandler, Updater
 
 # Check if the Python version is 3.4 or higher, otherwise the bot
 # will not run.
 minpython = (3, 4, 0)
-if version_info < minpython:
+if sys.version_info < minpython:
     print("Python 3.4 or later is required. Please update your Python version.")
-    exit(1)
+    sys.exit(1)
 
 # Enable logging
 log.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
