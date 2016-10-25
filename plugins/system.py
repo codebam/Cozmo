@@ -28,7 +28,7 @@ def seconds_to_str(seconds):
     days, remainder = divmod(seconds, 86400)
     hours, remainder = divmod(remainder, 3600)
     minutes, seconds = divmod(remainder, 60)
-    return "{} day(s) {:02}:{:02}:{:02}".format(days, hours, minutes, seconds)
+    return "{} day(s), up for {:02}:{:02}:{:02}".format(days, hours, minutes, seconds)
 
 
 def system(_, update):
