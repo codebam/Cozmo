@@ -47,8 +47,8 @@ def system(_, update):
     os = platform.system()
     version = platform.version()
 
-    # CPU information. Uses psutil facilities for the
-    # CPU count for non logical CPU cores.
+    # CPU information. Uses some psutil facilities for the
+    # CPU count of logicial and non-logical CPU cores.
     cpu_count = psutil.cpu_count(logical=False)
     cpus_log = psutil.cpu_count(logical=True)
     cpu_string = str(psutil.cpu_percent(interval=0.5, percpu=True)).replace("[", " ").replace("]", " ")
