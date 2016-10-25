@@ -90,7 +90,7 @@ def main():
 
     from plugins.system import system
     dp.add_handler(CommandHandler('system', system))
-    logger.info("Plugin loading complete. All plugins loaded.")
+    logger.info("Plugin loading sequence complete. All plugins loaded.")
 
     def error(_, update, err):
         logger.warn('Update "%s" caused error "%s"' % (update, err))
