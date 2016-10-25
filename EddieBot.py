@@ -39,8 +39,8 @@ logger = log.getLogger("EddieBot")
 def main():
     # Initialize a config file, so that way the user doesn't have to worry
     # about creating a config file manually.
-    config = ConfigParser(allow_no_value=True)
     logger.info("Initializing ConfigParser.")
+    config = ConfigParser(allow_no_value=True)
 
     # Create a 'Basic Settings' section and add a setting to it. This is
     # where the user's token will be stored.
