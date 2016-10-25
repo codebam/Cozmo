@@ -30,5 +30,5 @@ def libraries(bot, update):
                                    "versions we use are listed below.\n\n"
                                    "*python-telegram-bot*: {}\n"
                                    "*requests*: {} ".format(get_me,
-                                                                                    tgver,
-                                                                                    reqsver))
+                                                            tgver,
+                                                            reqsver))
