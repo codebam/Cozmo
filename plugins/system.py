@@ -45,7 +45,7 @@ def system(_, update):
 
     # Retrieves the OS name and the version.
     os = platform.system()
-    version = platform.version()
+    version = platform.version().strip('.')[:2]
 
     # CPU information. Uses some psutil facilities for the
     # CPU count of logical and non-logical CPU cores.
