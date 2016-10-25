@@ -40,6 +40,7 @@ def main():
     # Initialize a config file, so that way the user doesn't have to worry
     # about creating a config file manually.
     config = ConfigParser(allow_no_value=True)
+    logger.info("Initializing ConfigParser.")
 
     # Create a 'Basic Settings' section and add a setting to it. This is
     # where the user's token will be stored.
@@ -52,10 +53,14 @@ def main():
     if not exists('config.ini'):
         with open('config.ini', 'w') as configfile:
             config.write(configfile)
+            logger.info("Generated the config file.")
+    else:
+        logger.info("Config file found. Not overwriting existing file.")
 
     config.read('config.ini')
 
     token = config.get('Basic Settings', 'token')
+    logger.info("ConfigParser initialized. Loading the bot.")
 
     # Create an Updater and pass it to the bot's token.
     updater = Updater(token)
@@ -64,33 +69,28 @@ def main():
     dp = updater.dispatcher
 
     # Register plugins and their commands
+    logger.info("Begin plugin loading sequence.")
     from plugins.info.about import about
     dp.add_handler(CommandHandler('about', about))
-    logger.info("about plugin loaded.")
 
     from plugins.info.libraries import libraries
     dp.add_handler(CommandHandler('libraries', libraries))
-    logger.info('libraries plugin loaded.')
 
     from plugins.me import me
     dp.add_handler(CommandHandler('me', me, pass_args=True))
-    logger.info("me plugin loaded.")
 
     from plugins.xkcd import xkcd_plugin as xkcd
     dp.add_handler(CommandHandler('xkcd', xkcd, pass_args=True))
-    logger.info("xkcd plugin loaded.")
 
     from plugins.id import id_plugin
     dp.add_handler(CommandHandler('id', id_plugin))
-    logger.info("id plugin loaded.")
 
     from plugins.start import start
     dp.add_handler(CommandHandler('start', start))
-    logger.info("start plugin loaded.")
 
     from plugins.system import system
     dp.add_handler(CommandHandler('system', system))
-    logger.info("system plugin loaded.")
+    logger.info("Plugin loading complete. All plugins loaded.")
 
     def error(_, update, err):
         logger.warn('Update "%s" caused error "%s"' % (update, err))
