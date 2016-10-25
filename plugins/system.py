@@ -47,20 +47,21 @@ def system(_, update):
     os = platform.system()
     version = platform.version()
 
-    # CPU information. Uses psutil facilities for
+    # CPU information. Uses psutil facilities for the
     # the CPU count for non logical CPU cores.
     cpu_count = psutil.cpu_count(logical=False)
     cpus_log = psutil.cpu_count(logical=True)
     cpu_string = str(psutil.cpu_percent(interval=0.5, percpu=True)).replace("[", " ").replace("]", " ")
 
-    # Return CPU cores along with the load on the CPU(s).
+    # Return the number of CPU cores along with the
+    # current load on the CPU(s).
     cpu_core_count = "*CPU cores*: physical: ", str(cpu_count), ", logical: ", str(cpus_log)
     cpu_cores = "".join(cpu_core_count)
     cpu_load_text = "*CPU load*: ", str(cpu_string)
     cpu_text = "".join(cpu_load_text)
 
-    # HDD info such as total HDD space, percentage,
-    # and used HDD space.
+    # HDD info such as total HDD space, percentage, and
+    # used HDD space.
     hdd_usage = psutil.disk_usage('/')
     hdd_total = round(hdd_usage[0] / 1024 ** 3, 1)
     hdd_used = round(hdd_usage[1] / 1024 ** 3, 1)
