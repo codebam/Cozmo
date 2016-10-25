@@ -66,31 +66,31 @@ def main():
     # Register plugins and their commands
     from plugins.info.about import about
     dp.add_handler(CommandHandler('about', about))
-    logger.info("about plugin initialized.")
+    logger.info("about plugin loaded.")
 
     from plugins.info.libraries import libraries
     dp.add_handler(CommandHandler('libraries', libraries))
-    logger.info('libraries plugin initialized.')
+    logger.info('libraries plugin loaded.')
 
     from plugins.me import me
     dp.add_handler(CommandHandler('me', me, pass_args=True))
-    logger.info("me plugin initialized.")
+    logger.info("me plugin loaded.")
 
     from plugins.xkcd import xkcd_plugin as xkcd
     dp.add_handler(CommandHandler('xkcd', xkcd, pass_args=True))
-    logger.info("xkcd plugin initialized.")
+    logger.info("xkcd plugin loaded.")
 
     from plugins.id import id_plugin
     dp.add_handler(CommandHandler('id', id_plugin))
-    logger.info("id plugin initialized.")
+    logger.info("id plugin loaded.")
 
     from plugins.start import start
     dp.add_handler(CommandHandler('start', start))
-    logger.info("start plugin initialized.")
+    logger.info("start plugin loaded.")
 
     from plugins.system import system
     dp.add_handler(CommandHandler('system', system))
-    logger.info("system plugin initialized.")
+    logger.info("system plugin loaded.")
 
     def error(_, update, err):
         logger.warn('Update "%s" caused error "%s"' % (update, err))
