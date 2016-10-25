@@ -55,7 +55,7 @@ def system(_, update):
 
     # Return the number of CPU cores along with the
     # current load on the CPU(s).
-    cpu_core_count = "*CPU cores*: physical: ", str(cpu_count), ", logical: ", str(cpus_log)
+    cpu_core_count = "*CPU cores*: ", str(cpu_count), " physical, ", str(cpus_log), " logical"
     cpu_cores = "".join(cpu_core_count)
     cpu_load_text = "*CPU load*: ", str(cpu_string)
     cpu_text = "".join(cpu_load_text)
