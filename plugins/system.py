@@ -40,8 +40,8 @@ def system(_, update):
     uptimetostr = int(uptime())
     pc_uptime = seconds_to_str(uptimetostr)
 
-    uptime_text = "*Uptime*: ", pc_uptime
-    uptime_text = "".join(uptime_text)
+    uptime_retrieval = "*Uptime*: ", pc_uptime
+    uptime_text = "".join(uptime_retrieval)
 
     # Retrieves the OS name and the version.
     os = platform.system()
@@ -49,25 +49,25 @@ def system(_, update):
 
     # CPU information. Uses psutil facilities for
     # the CPU count for non logical CPU cores.
-    cpus = psutil.cpu_count(logical=False)
+    cpu_count = psutil.cpu_count(logical=False)
     cpus_log = psutil.cpu_count(logical=True)
     cpu_string = str(psutil.cpu_percent(interval=0.5, percpu=True)).replace("[", " ").replace("]", " ")
 
     # Return CPU cores along with the load on the CPU(s).
-    cpu_cores = "*CPU cores*: physical: ", str(cpus), ", logical: ", str(cpus_log)
-    cpu_cores = "".join(cpu_cores)
-    cpu_text = "*CPU load*: ", str(cpu_string)
-    cpu_text = "".join(cpu_text)
+    cpu_core_count = "*CPU cores*: physical: ", str(cpu_count), ", logical: ", str(cpus_log)
+    cpu_cores = "".join(cpu_core_count)
+    cpu_load_text = "*CPU load*: ", str(cpu_string)
+    cpu_text = "".join(cpu_load_text)
 
     # HDD info such as total HDD space, percentage,
     # and used HDD space.
-    hdd = psutil.disk_usage('/')
-    hdd_total = round(hdd[0] / 1024 ** 3, 1)
-    hdd_used = round(hdd[1] / 1024 ** 3, 1)
-    hdd_percentage = hdd[3]
+    hdd_usage = psutil.disk_usage('/')
+    hdd_total = round(hdd_usage[0] / 1024 ** 3, 1)
+    hdd_used = round(hdd_usage[1] / 1024 ** 3, 1)
+    hdd_percentage = hdd_usage[3]
 
-    hdd_text = "*HDD usage*: ", str(hdd_percentage), "% (", str(hdd_used), " GB of ", str(hdd_total), " GB)"
-    hdd_text = "".join(hdd_text)
+    hdd_usage_text = "*HDD usage*: ", str(hdd_percentage), "% (", str(hdd_used), " GB of ", str(hdd_total), " GB)"
+    hdd_text = "".join(hdd_usage_text)
 
     update.message.reply_text(parse_mode='Markdown',
                               text="*System Info*:\n\n*OS*: " + os + " " + version + "\n" + cpu_cores + "\n" + cpu_text
