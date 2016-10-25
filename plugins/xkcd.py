@@ -14,8 +14,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
 
-from requests import get
 from json import loads
+
+from requests import get
 
 
 def xkcd_plugin(bot, update, args):

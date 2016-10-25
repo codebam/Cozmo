@@ -31,5 +31,5 @@ def about(bot, update):
                                    " and @xenial. It is written in the Python programming language."
                                    "\n\n*python-telegram-bot version*: {2}\n"
                                    "*Source Code*: [GitHub](https://github.com/KamranMackey/EddieBot)".format(get_me,
-                                                                                                             botver,
-                                                                                                             tgver))
+                                                                                                              botver,
+                                                                                                              tgver))

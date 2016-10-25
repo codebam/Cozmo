@@ -16,7 +16,7 @@
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
 
 from configparser import ConfigParser
-from logging import basicConfig, getLogger, INFO
+import logging as log
 from os.path import exists
 from sys import version_info, exit
 
@@ -30,10 +30,10 @@ if version_info < minpython:
     exit(1)
 
 # Enable logging
-basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-            level=INFO)
+log.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                level=log.INFO)
 
-logger = getLogger(__name__)
+logger = log.getLogger("EddieBot")
 
 
 def main():
@@ -66,20 +66,29 @@ def main():
     # Register plugins and their commands
     from plugins.about import about
     dp.add_handler(CommandHandler('about', about))
+    logger.info("about plugin initialized.")
 
     from plugins.me import me
     dp.add_handler(CommandHandler('me', me, pass_args=True))
+    logger.info("me plugin initialized.")
 
     from plugins.xkcd import xkcd_plugin as xkcd
     dp.add_handler(CommandHandler('xkcd', xkcd, pass_args=True))
+    logger.info("xkcd plugin initialized.")
 
     from plugins.id import id_plugin
     dp.add_handler(CommandHandler('id', id_plugin))
+    logger.info("id plugin initialized.")
 
     from plugins.start import start
     dp.add_handler(CommandHandler('start', start))
+    logger.info("start plugin initialized.")
 
-    def error(_, update, err):
+    from plugins.system import system
+    dp.add_handler(CommandHandler('system', system))
+    logger.info("system plugin initialized.")
+
+    def error(update, err):
         logger.warn('Update "%s" caused error "%s"' % (update, err))
 
     # Create an error handler
