@@ -88,7 +88,7 @@ def main():
     dp.add_handler(CommandHandler('system', system))
     logger.info("system plugin initialized.")
 
-    def error(update, err):
+    def error(_, update, err):
         logger.warn('Update "%s" caused error "%s"' % (update, err))
 
     # Create an error handler
