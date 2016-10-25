@@ -15,8 +15,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
 
-from configparser import ConfigParser
 import logging as log
+from configparser import ConfigParser
 from os.path import exists
 from sys import version_info, exit
 
@@ -64,9 +64,13 @@ def main():
     dp = updater.dispatcher
 
     # Register plugins and their commands
-    from plugins.about import about
+    from plugins.info.about import about
     dp.add_handler(CommandHandler('about', about))
     logger.info("about plugin initialized.")
+
+    from plugins.info.libraries import libraries
+    dp.add_handler(CommandHandler('libraries', libraries))
+    logger.info('libraries plugin initialized.')
 
     from plugins.me import me
     dp.add_handler(CommandHandler('me', me, pass_args=True))

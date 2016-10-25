@@ -18,6 +18,8 @@ from json import loads
 
 from requests import get
 
+from EddieBot import logger
+
 
 def xkcd_plugin(bot, update, args):
     base_url = "http://xkcd.com/"
@@ -40,6 +42,7 @@ def xkcd_plugin(bot, update, args):
                                   text="*Error*: Improper format of xkcd ID. IDs are numeric. Please "
                                        "enter a numeric ID.\n\n"
                                        "*Example xkcd ID*: 378")
+        logger.warn("Wrong xkcd ID entered. Throwing error message.")
     except IndexError:
         # If ID is not given, send the latest xkcd image.
         xkcd = get(base_url + "info.0.json").text
