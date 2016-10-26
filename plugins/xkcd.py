@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
 
-from json import loads
+import json
 
 import requests
 
@@ -28,7 +28,7 @@ def xkcd_plugin(bot, update, args):
     try:
         num = int(args[0])
         xkcd = requests.get(strip_url % num).text
-        xkcd = loads(xkcd)
+        xkcd = json.loads(xkcd)
 
         title = xkcd['title']
         alt = xkcd['alt']
@@ -47,7 +47,7 @@ def xkcd_plugin(bot, update, args):
     except IndexError:
         # If ID is not given, send the latest xkcd image.
         xkcd = requests.get(base_url).text
-        xkcd = loads(xkcd)
+        xkcd = json.loads(xkcd)
 
         num = xkcd['num']
 
