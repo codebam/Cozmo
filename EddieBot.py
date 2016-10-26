@@ -16,9 +16,9 @@
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
 
 import logging as log
+import sys
 from configparser import ConfigParser
 from os.path import exists
-import sys
 
 from telegram.ext import CommandHandler, Updater
 
@@ -39,7 +39,7 @@ logger = log.getLogger("EddieBot")
 def main():
     # Initialize a config file, so that way the user doesn't have to worry
     # about creating a config file manually.
-    logger.info("Initializing ConfigParser.")
+    logger.info("Initializing config system.")
     config = ConfigParser(allow_no_value=True)
 
     # Create a 'Basic Settings' section and add a setting to it. This is
@@ -60,7 +60,7 @@ def main():
     config.read('config.ini')
 
     token = config.get('Basic Settings', 'token')
-    logger.info("ConfigParser initialized. Loading the bot.")
+    logger.info("Config system initialized. Loading the bot.")
 
     # Create an Updater and pass it to the bot's token.
     updater = Updater(token)
