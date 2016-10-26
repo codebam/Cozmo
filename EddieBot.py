@@ -38,10 +38,11 @@ logger = log.getLogger("EddieBot")
 
 def main():
     """
-    Main method of the bot. It initializes the configuration
-    system, sets up basic logging, creates a dispatcher/updater,
-    and registers plugins. It also keeps the bot from killing itself.
+    Main method of the bot. It initializes the configuration system,
+    sets up basic log messages, creates a dispatcher/updater, and
+    registers plugins. It also keeps the bot from killing itself.
     """
+
     # Initialize a config file, so that way the user doesn't have to worry
     # about creating a config file manually.
     logger.info("Initializing config system.")
