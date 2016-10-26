@@ -52,6 +52,7 @@ def main():
     # configuration.
     if not exists('config.ini'):
         with open('config.ini', 'w') as configfile:
+            logger.info("Generating the config file.")
             config.write(configfile)
             logger.info("Generated the config file.")
     else:
