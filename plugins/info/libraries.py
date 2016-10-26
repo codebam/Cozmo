@@ -25,9 +25,8 @@ def libraries(bot, update):
     """
     get_me = bot.getMe().first_name
     update.message.reply_text(parse_mode='Markdown',
-                              text="*{}* runs on a number of libraries. Without these, it "
-                                   "would not be where it is today. Libraries and the "
-                                   "versions we use are listed below.\n\n"
+                              text="*{}* runs on a number of libraries. The names and "
+                                   "versions of the libraries we use are listed below.\n\n"
                                    "*python-telegram-bot*: {}\n"
                                    "*requests*: {} ".format(get_me,
                                                             tgver,

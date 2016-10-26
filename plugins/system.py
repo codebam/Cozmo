@@ -45,7 +45,8 @@ def system(_, update):
 
     # Retrieves the OS name and the version.
     os = platform.system()
-    version = platform.version().strip('.')[:2]
+    pyver = platform.python_version()
+    version = platform.version()
 
     # CPU information. Uses some psutil facilities for the
     # CPU count of logical and non-logical CPU cores.
@@ -71,5 +72,6 @@ def system(_, update):
     hdd_text = "".join(hdd_usage_text)
 
     update.message.reply_text(parse_mode='Markdown',
-                              text="*System Info*:\n\n" + "*OS*: " + os + " " + version + "\n" + cpu_cores + "\n" +
-                                   cpu_text + "\n" + hdd_text + "\n" + uptime_text)
+                              text="*System Info*:\n\n" + "*OS*: " + os + " " + version + "\n" + "*Python Version*: " +
+                                   pyver + "\n"
+                                   + cpu_cores + "\n" + cpu_text + "\n" + hdd_text + "\n" + uptime_text)
