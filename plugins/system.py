@@ -72,6 +72,6 @@ def system(_, update):
     hdd_text = "".join(hdd_usage_text)
 
     update.message.reply_text(parse_mode='Markdown',
-                              text="*System Info*:\n\n" + "*OS*: " + os + " " + version + "\n" + "*Python Version*: " +
-                                   pyver + "\n"
-                                   + cpu_cores + "\n" + cpu_text + "\n" + hdd_text + "\n" + uptime_text)
+                              text="*System Info*:\n\n" + "*OS*: " + os + " " + version + "\n" +
+                                   "*Python Version*: " + pyver + "\n" + cpu_cores + "\n" + cpu_text
+                                   + "\n" + hdd_text + "\n" + uptime_text)
