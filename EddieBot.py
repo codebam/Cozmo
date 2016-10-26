@@ -22,7 +22,7 @@ from os.path import exists
 
 from telegram.ext import CommandHandler, Updater
 
-# Require Python version to be 3.4 or higher
+# Require Python version to be 3.4 or higher.
 minpython = (3, 4, 0)
 if sys.version_info < minpython:
     print("Python 3.4 or later is required. Please update your Python version.")
