@@ -22,11 +22,12 @@ from EddieBot import logger
 
 
 def xkcd_plugin(bot, update, args):
-    base_url = "http://xkcd.com/"
+    base_url = "https://xkcd.com/info.0.json"
+    strip_url = 'http://xkcd.com/%s/info.0.json'
 
     try:
         num = int(args[0])
-        xkcd = get(base_url + "%s/info.0.json" % num).text
+        xkcd = get(strip_url % num).text
         xkcd = loads(xkcd)
 
         title = xkcd['title']
@@ -45,7 +46,7 @@ def xkcd_plugin(bot, update, args):
         logger.warn("Wrong xkcd ID entered. Throwing error message.")
     except IndexError:
         # If ID is not given, send the latest xkcd image.
-        xkcd = get(base_url + "info.0.json").text
+        xkcd = get(base_url).text
         xkcd = loads(xkcd)
 
         num = xkcd['num']
