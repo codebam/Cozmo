@@ -32,6 +32,8 @@ def wouldyourather(_, update):
     wyr_request = requests.get(wyr_url).text
     wyr_json = json.loads(wyr_request)
 
+    # Dictionary containing variables used in
+    # the wyr message text.
     wyr_vars = {
         "title": wyr_json["title"].capitalize(),
         "choices":
