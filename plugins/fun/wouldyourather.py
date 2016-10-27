@@ -32,16 +32,19 @@ def wouldyourather(_, update):
     wyr_request = requests.get(wyr_url).text
     wyr_json = json.loads(wyr_request)
 
-    # Variables
-    title = wyr_json["title"].capitalize()
-    choice_a = wyr_json["choicea"].replace("?", "")
-    choice_b = wyr_json["choiceb"].replace("?", "")
-    votes = '{0:,}'.format(wyr_json["votes"])
-    tags = wyr_json["tags"].replace(",", ", ")
-    link = wyr_json["link"].replace("http", "https")
-
-    # Message text
-    view_text = "*View this question on rrrather*"
+    wyr_vars = {
+        "title": wyr_json["title"].capitalize(),
+        "choices":
+            {
+                "A": wyr_json["choicea"].replace("?", ""),
+                "B": wyr_json["choiceb"].replace("?", "")
+            },
+        "votes": '{0:,}'.format(wyr_json["votes"]),
+        "tags": wyr_json["tags"].replace(",", ", "),
+        "view_text": "*View this question on rrrather*",
+        "link": wyr_json["link"].replace("http", "https"),
+    }
+    
     try:
         update.message.reply_text(parse_mode='Markdown',
                                   disable_web_page_preview=True,
@@ -50,13 +53,13 @@ def wouldyourather(_, update):
                                        "*Choice B*: {}\n\n"
                                        "*Votes*: {}\n"
                                        "*Tags*: {}\n"
-                                       "{}: {}".format(title,
-                                                       choice_a,
-                                                       choice_b,
-                                                       votes,
-                                                       tags,
-                                                       view_text,
-                                                       link))
+                                       "{}: {}".format(wyr_vars['title'],
+                                                       wyr_vars['choices']['A'],
+                                                       wyr_vars['choices']['B'],
+                                                       wyr_vars['votes'],
+                                                       wyr_vars['tags'],
+                                                       wyr_vars['view_text'],
+                                                       wyr_vars['link']))
     except AttributeError:
         update.message.reply_text(text="`Error trying to retrieve a would you "
                                        "rather question. Please try again.`")
