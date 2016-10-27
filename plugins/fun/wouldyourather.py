@@ -30,15 +30,15 @@ def wouldyourather(_, update):
     wyr_json = json.loads(wyr_request)
 
     # Variables
-    title = wyr_json["title"].capitalize().replace(" :", "")
-    choice_a = wyr_json["choicea"]
+    title = wyr_json["title"].capitalize()
+    choice_a = wyr_json["choicea"].replace("?", "")
     choice_b = wyr_json["choiceb"].replace("?", "")
     votes = '{0:,}'.format(wyr_json["votes"])
     tags = wyr_json["tags"].replace(",", ", ")
     link = wyr_json["link"].replace("http", "https")
 
     # Message text
-    view_text = "*View question on rrrather*"
+    view_text = "*View this question on rrrather*"
     try:
         update.message.reply_text(parse_mode='Markdown',
                                   disable_web_page_preview=True,
