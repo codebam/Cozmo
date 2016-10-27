@@ -1,19 +1,19 @@
-# Eddie
-Eddie is a Telegram bot coded in Python, and uses the awesome [python-telegram-bot](https://python-telegram-bot.org) 
+# Cozmo
+Cozmo is a Telegram bot coded in Python, and uses the awesome [python-telegram-bot](https://python-telegram-bot.org) 
 library as a base. 
 
-**Note**: Eddie is still in development, and because of this, it may or may not contain bugs. We'll see.
+**Note**: Cozmo is still in development, and because of this, it may or may not contain bugs. We'll see.
 
 ## Installation
-Python 3.4 or later is required for Eddie to run. I personally recommend Python 3.5.2 for the best performance. 
+Python 3.4 or later is required for Cozmo to run. I personally recommend Python 3.5.2 for the best performance. 
 
-**Note regarding Python 3.6 support**: 3.6 has no breaking changes in syntax and as such, Eddie will be compatible with
+**Note regarding Python 3.6 support**: 3.6 has no breaking changes in syntax and as such, Cozmo will be compatible with
 3.6 on release.
 
 ### Clone the repository
 ```
-git clone https://github.com/KamranMackey/EddieBot.git
-cd EddieBot
+git clone https://github.com/KamranMackey/Cozmo.git
+cd Cozmo
 ```
 
 ### Install required dependencies
@@ -23,15 +23,15 @@ pip install -r requirements.txt
 
 ### Mark as excutable (Linux-only!)
 ```
-chmod +x EddieBot.py
+chmod +x Cozmo.py
 ```
 Or, if you don't want to mess with file permissions, you can also do this:
 ```
-python EddieBot.py
+python Cozmo.py
 ```
 
 ### Run
-Run `EddieBot.py` once so that it can generate the `config.ini` file. You will get an "Invalid token" error due to the 
+Run `Cozmo.py` once so that it can generate the `config.ini` file. You will get an "Invalid token" error due to the 
 `token` setting being blank, but just ignore it for now. Now, edit `config.ini`, and under the `Basic Settings` section, 
 set your token to the one you received from BotFather. You should now be able to run the bot!
 

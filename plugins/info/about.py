@@ -25,8 +25,8 @@ def about(bot, update):
     get_me = bot.getMe().first_name
     update.message.reply_text(parse_mode='Markdown',
                               disable_web_page_preview=True,
-                              text="*{0}* is powered by *EddieBot* {1}, the plugin-based bot built primarily by "
+                              text="*{0}* is powered by *Cozmo* {1}, the plugin-based bot built primarily by "
                                    "@l3thal. It is written in the Python programming language. You can "
                                    "view which libraries we use by doing /libraries.\n\n"
-                                   "*Source Code*: [GitHub](https://github.com/KamranMackey/EddieBot)".format(get_me,
-                                                                                                              botver))
+                                   "*Source Code*: [GitHub](https://github.com/KamranMackey/Cozmo)".format(get_me,
+                                                                                                           botver))

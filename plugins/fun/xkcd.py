@@ -18,7 +18,7 @@ import json
 
 import requests
 
-from EddieBot import logger
+from Cozmo import logger
 
 
 def xkcd_plugin(bot, update, args):

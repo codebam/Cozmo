@@ -32,7 +32,7 @@ if sys.version_info < minpython:
 log.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                 level=log.INFO)
 
-logger = log.getLogger("EddieBot")
+logger = log.getLogger("Cozmo")
 
 
 def main():
