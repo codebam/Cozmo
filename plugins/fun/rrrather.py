@@ -36,13 +36,17 @@ def rrrather(_, update):
     votes = rrrather_json["votes"]
     link = rrrather_json["link"].replace("http", "https")
 
+    # Responses
+    view_text = "*View question on rrrather*"
+
     # Message text
     update.message.reply_text(parse_mode='Markdown',
                               disable_web_page_preview=True,
                               text="{0}: {1} or {2}?\n\n"
                                    "*Votes*: {3}\n"
-                                   "*View question on rrrather*: {4}".format(title,
-                                                                             choice_a,
-                                                                             choice_b,
-                                                                             votes,
-                                                                             link))
+                                   "{4}: {5}".format(title,
+                                                     choice_a,
+                                                     choice_b,
+                                                     votes,
+                                                     view_text,
+                                                     link))
