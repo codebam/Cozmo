@@ -14,12 +14,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
 
+from telegram import ChatAction
+
 
 def start(bot, update):
     """
     Create a basic start command. Nothing fancy
     here folks.
     """
+    update.message.chat.send_action(action=ChatAction.TYPING)
     update.message.reply_text(parse_mode='Markdown',
                               text="Hi, I'm *{0}*! Please enter /about to view information about me.".format(
                                   bot.getMe().first_name))

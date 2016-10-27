@@ -14,17 +14,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
 
-try:
-    import ujson as json
-except ImportError:
-    import json
+import json
 
 import requests
+from telegram import ChatAction
 
-from Cozmo import logger
 
-
-def xkcd_plugin(bot, update, args):
+def xkcd_plugin(_, update, args):
     base_url = "https://xkcd.com/info.0.json"
     strip_url = 'https://xkcd.com/%s/info.0.json'
 
@@ -38,15 +34,16 @@ def xkcd_plugin(bot, update, args):
 
         # also sending the 'num' is too redundant in this case
         caption = '{0} - {1}'.format(title, alt)
-        bot.sendPhoto(chat_id=update.message.chat_id,
-                      photo=xkcd['img'], caption=caption)
+        update.message.chat.send_action(action=ChatAction.UPLOAD_PHOTO)
+        update.message.reply_photo(photo=xkcd['img'],
+                                   caption=caption)
     except ValueError:
         # Send an error message if the ID format is wrong.
+        update.message.chat.send_action(action=ChatAction.TYPING)
         update.message.reply_text(parse_mode='Markdown',
                                   text="*Error*: Improper format of xkcd ID. IDs are numeric. Please "
                                        "enter a numeric ID.\n\n"
                                        "*Example xkcd ID*: 378")
-        logger.warn("Wrong xkcd ID entered. Throwing error message.")
     except IndexError:
         # If ID is not given, send the latest xkcd image.
         xkcd = requests.get(base_url).text
@@ -59,5 +56,6 @@ def xkcd_plugin(bot, update, args):
 
         caption = '{0} - {1} - {2}'.format(num, title, alt)
 
-        bot.sendPhoto(chat_id=update.message.chat_id,
-                      photo=xkcd['img'], caption=caption)
+        update.message.chat.send_action(action=ChatAction.UPLOAD_PHOTO)
+        update.message.reply_photo(photo=xkcd['img'],
+                                   caption=caption)

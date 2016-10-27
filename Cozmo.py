@@ -49,7 +49,8 @@ def main():
     # Create a 'Basic Settings' section and add a setting to it. This is
     # where the user's token will be stored.
     config['Basic Settings'] = {'; This configures basic settings such as your token.\n'
-                                'token': ''}
+                                'token': ''
+                                '; Last.fm'}
 
     # Generate the config file as config.ini. If the file already exists,
     # do not overwrite it, as we don't want the user to lose their existing

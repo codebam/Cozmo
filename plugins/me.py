@@ -14,10 +14,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
 
+from telegram import ChatAction
 
 def me(_, update, args):
     args = ' '.join(args)
     user = update.message.from_user.first_name
-
+    update.message.chat.send_action(action=ChatAction.TYPING)
     update.message.reply_text(parse_mode='Markdown',
                               text='*{0}* {1}'.format(user, args))

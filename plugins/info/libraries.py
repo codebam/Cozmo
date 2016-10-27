@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
 
-from telegram import __version__ as tgver
+from telegram import (__version__ as tgver, ChatAction)
 from requests import __version__ as reqsver
 
 
@@ -24,6 +24,7 @@ def libraries(bot, update):
     the libraries the bot uses.
     """
     get_me = bot.getMe().first_name
+    update.message.chat.send_action(action=ChatAction.TYPING)
     update.message.reply_text(parse_mode='Markdown',
                               text="*{}* runs on a number of libraries. The names and "
                                    "versions of the libraries we use are listed below.\n\n"

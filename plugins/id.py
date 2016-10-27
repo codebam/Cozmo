@@ -14,6 +14,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
 
+from telegram import ChatAction
+
 
 def id_plugin(_, update):
     """
@@ -23,6 +25,7 @@ def id_plugin(_, update):
     name = update.message.from_user.first_name
     uid = update.message.from_user.id
 
+    update.message.chat.send_action(action=ChatAction.TYPING)
     update.message.reply_text(parse_mode='Markdown',
                               quote=True,
                               text="You are *{0}* with ID `{1}`.".format(name,

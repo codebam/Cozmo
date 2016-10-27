@@ -17,6 +17,7 @@
 import platform
 
 import psutil
+from telegram import ChatAction
 from uptime import uptime
 
 
@@ -71,6 +72,7 @@ def system(_, update):
     hdd_usage_text = "*HDD usage*: ", str(hdd_percentage), "% (", str(hdd_used), " GB of ", str(hdd_total), " GB)"
     hdd_text = "".join(hdd_usage_text)
 
+    update.message.chat.send_action(action=ChatAction.TYPING)
     update.message.reply_text(parse_mode='Markdown',
                               text="*System Info*:\n\n" + "*OS*: " + os + " " + version + "\n" +
                                    "*Python Version*: " + pyver + "\n" + cpu_cores + "\n" + cpu_text

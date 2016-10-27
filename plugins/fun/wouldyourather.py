@@ -13,13 +13,10 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see [http://www.gnu.org/licenses/].
-
-try:
-    import ujson as json
-except ImportError:
-    import json
+import json
 
 import requests
+from telegram import ChatAction
 
 
 def wouldyourather(_, update):
@@ -34,7 +31,7 @@ def wouldyourather(_, update):
 
     # Dictionary containing variables used in
     # the wyr message text.
-    wyr_vars = {
+    wyr = {
         "title": wyr_json["title"].capitalize(),
         "choices":
             {
@@ -48,6 +45,7 @@ def wouldyourather(_, update):
     }
 
     try:
+        update.message.chat.send_action(action=ChatAction.TYPING)
         update.message.reply_text(parse_mode='Markdown',
                                   disable_web_page_preview=True,
                                   text="{}:\n"
@@ -55,14 +53,15 @@ def wouldyourather(_, update):
                                        "*Choice B*: {}\n\n"
                                        "*Votes*: {}\n"
                                        "*Tags*: {}\n"
-                                       "{}: {}".format(wyr_vars['title'],
-                                                       wyr_vars['choices']['A'],
-                                                       wyr_vars['choices']['B'],
-                                                       wyr_vars['votes'],
-                                                       wyr_vars['tags'],
-                                                       wyr_vars['view_text'],
-                                                       wyr_vars['link']))
-    except (AttributeError, ConnectionError):
+                                       "{}: {}".format(wyr['title'],
+                                                       wyr['choices']['A'],
+                                                       wyr['choices']['B'],
+                                                       wyr['votes'],
+                                                       wyr['tags'],
+                                                       wyr['view_text'],
+                                                       wyr['link']))
+    except AttributeError:
+        update.message.chat.send_action(ChatAction.TYPING)
         update.message.reply_text(text="`Error trying to retrieve a would you rather "
                                        "question due to an AttributeError or a connection "
                                        "problem with the rrrather json API. Please try "

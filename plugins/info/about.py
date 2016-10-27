@@ -16,6 +16,8 @@
 
 from init import __version__ as botver
 
+from telegram import ChatAction
+
 
 def about(bot, update):
     """
@@ -23,6 +25,7 @@ def about(bot, update):
     to the bot's source code on GitHub.
     """
     get_me = bot.getMe().first_name
+    update.message.chat.send_action(action=ChatAction.TYPING)
     update.message.reply_text(parse_mode='Markdown',
                               disable_web_page_preview=True,
                               text="*{0}* is powered by *Cozmo* {1}, the plugin-based bot built primarily by "
