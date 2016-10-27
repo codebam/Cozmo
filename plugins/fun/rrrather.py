@@ -29,11 +29,20 @@ def rrrather(_, update):
     rrrather_request = requests.get(rrrather_url).text
     rrrather_json = json.loads(rrrather_request)
 
+    # Variables
     title = rrrather_json["title"]
     choice_a = rrrather_json["choicea"]
     choice_b = rrrather_json["choiceb"]
+    votes = rrrather_json["votes"]
+    link = rrrather_json["link"]
 
+    # Message text
     update.message.reply_text(parse_mode='Markdown',
-                              text="{0}: {1} OR {2}?".format(title,
-                                                             choice_a,
-                                                             choice_b))
+                              disable_web_page_preview=True,
+                              text="{0}: {1} or {2}?\n\n"
+                                   "*Votes*: {3}\n"
+                                   "*View question on rrrather*: {4}".format(title,
+                                                                             choice_a,
+                                                                             choice_b,
+                                                                             votes,
+                                                                             link.replace("http", "https")))
