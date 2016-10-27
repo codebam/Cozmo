@@ -44,7 +44,7 @@ def wouldyourather(_, update):
         "view_text": "*View this question on rrrather*",
         "link": wyr_json["link"].replace("http", "https"),
     }
-    
+
     try:
         update.message.reply_text(parse_mode='Markdown',
                                   disable_web_page_preview=True,
@@ -60,6 +60,8 @@ def wouldyourather(_, update):
                                                        wyr_vars['tags'],
                                                        wyr_vars['view_text'],
                                                        wyr_vars['link']))
-    except AttributeError:
+    except (AttributeError, ConnectionError):
         update.message.reply_text(text="`Error trying to retrieve a would you "
-                                       "rather question. Please try again.`")
+                                       "rather question due to an AttributeError"
+                                       "or a connection problem with the rrrather"
+                                       "API. Please try again.`")
