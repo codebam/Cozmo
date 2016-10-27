@@ -34,6 +34,6 @@ def rrrather(_, update):
     choice_b = rrrather_json["choiceb"]
 
     update.message.reply_text(parse_mode='Markdown',
-                              text="{0}: {1 or {2}?".format(title,
-                                                            choice_a,
-                                                            choice_b))
+                              text="{0}: {1} or {2}?".format(title,
+                                                             choice_a,
+                                                             choice_b))
