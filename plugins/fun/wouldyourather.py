@@ -61,7 +61,7 @@ def wouldyourather(_, update):
                                                        wyr_vars['view_text'],
                                                        wyr_vars['link']))
     except (AttributeError, ConnectionError):
-        update.message.reply_text(text="`Error trying to retrieve a would you "
-                                       "rather question due to an AttributeError"
-                                       "or a connection problem with the rrrather"
-                                       "API. Please try again.`")
+        update.message.reply_text(text="`Error trying to retrieve a would you rather "
+                                       "question due to an AttributeError or a connection "
+                                       "problem with the rrrather json API. Please try "
+                                       "again later.`")
