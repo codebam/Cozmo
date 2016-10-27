@@ -55,4 +55,5 @@ def rrrather(_, update):
                                                        view_text,
                                                        link))
     except AttributeError:
-        update.message.reply_text(text="`Error retrieving rrrather question. Please try again.`")
+        update.message.reply_text(text="`Error retrieving rrrather question. "
+                                       "Please try again.`")
