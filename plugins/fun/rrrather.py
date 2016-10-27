@@ -38,17 +38,20 @@ def rrrather(_, update):
 
     # Message text
     view_text = "*View question on rrrather*"
-    update.message.reply_text(parse_mode='Markdown',
-                              disable_web_page_preview=True,
-                              text="{}:\n"
-                                   "*Choice A*: {}\n"
-                                   "*Choice B*: {}\n\n"
-                                   "*Votes*: {}\n"
-                                   "*Tags*: {}\n"
-                                   "{}: {}".format(title,
-                                                   choice_a,
-                                                   choice_b,
-                                                   votes,
-                                                   rrrather_json["tags"].replace(",", ", "),
-                                                   view_text,
-                                                   link))
+    try:
+        update.message.reply_text(parse_mode='Markdown',
+                                  disable_web_page_preview=True,
+                                  text="{}:\n"
+                                       "*Choice A*: {}\n"
+                                       "*Choice B*: {}\n\n"
+                                       "*Votes*: {}\n"
+                                       "*Tags*: {}\n"
+                                       "{}: {}".format(title,
+                                                       choice_a,
+                                                       choice_b,
+                                                       votes,
+                                                       rrrather_json["tags"].replace(",", ", "),
+                                                       view_text,
+                                                       link))
+    except AttributeError:
+        update.message.reply_text(text="`Error retrieving rrrather question. Please try again.`")
