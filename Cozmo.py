@@ -59,6 +59,7 @@ def main():
             logger.info("Generating the config file.")
             config.write(configfile)
             logger.info("Generated the config file.")
+            exit(0) # This is the key to success
     else:
         logger.info("Config file found. Not overwriting existing file.")
 

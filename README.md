@@ -31,8 +31,7 @@ python Cozmo.py
 ```
 
 ### Run
-Run `Cozmo.py` once so that it can generate the `config.ini` file. You will get an "Invalid token" error due to the 
-`token` setting being blank, but just ignore it for now. Now, edit `config.ini`, and under the `Basic Settings` section, 
+Run `Cozmo.py` once so that it can generate the `config.ini` file. Then, edit `config.ini`, and under the `Basic Settings` section, 
 set your token to the one you received from BotFather. You should now be able to run the bot!
 
 ## License
