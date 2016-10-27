@@ -32,7 +32,7 @@ def rrrather(_, update):
     # Variables
     title = rrrather_json["title"]
     choice_a = rrrather_json["choicea"]
-    choice_b = rrrather_json["choiceb"]
+    choice_b = rrrather_json["choiceb"].replace("?", "")
     votes = '{0:,}'.format(rrrather_json["votes"])
     tags = rrrather_json["tags"]
     link = rrrather_json["link"].replace("http", "https")
@@ -41,9 +41,9 @@ def rrrather(_, update):
     view_text = "*View question on rrrather*"
     update.message.reply_text(parse_mode='Markdown',
                               disable_web_page_preview=True,
-                              text="{}\n"
+                              text="{}:\n"
                                    "*Choice A*: {}\n"
-                                   "*Choice B*: {}?\n\n"
+                                   "*Choice B*: {}\n\n"
                                    "*Votes*: {}\n"
                                    "*Tags*: {}\n"
                                    "{}: {}".format(title,
