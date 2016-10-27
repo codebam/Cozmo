@@ -84,10 +84,10 @@ def main():
     from plugins.me import me
     dp.add_handler(CommandHandler('me', me, pass_args=True))
 
-    from plugins.xkcd import xkcd_plugin as xkcd
+    from plugins.fun.xkcd import xkcd_plugin as xkcd
     dp.add_handler(CommandHandler('xkcd', xkcd, pass_args=True))
 
-    from plugins.rrrather import rrrather
+    from plugins.fun.rrrather import rrrather
     dp.add_handler(CommandHandler('rrrather', rrrather))
 
     from plugins.id import id_plugin
