@@ -30,7 +30,7 @@ def rrrather(_, update):
     rrrather_json = json.loads(rrrather_request)
 
     # Variables
-    title = rrrather_json["title"]
+    title = rrrather_json["title"].capitalize()
     choice_a = rrrather_json["choicea"]
     choice_b = rrrather_json["choiceb"].replace("?", "")
     votes = '{0:,}'.format(rrrather_json["votes"])
