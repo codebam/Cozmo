@@ -33,7 +33,7 @@ def rrrather(_, update):
     title = rrrather_json["title"]
     choice_a = rrrather_json["choicea"]
     choice_b = rrrather_json["choiceb"]
-    votes = rrrather_json["votes"]
+    votes = '{0:,}'.format(rrrather_json["votes"])
     link = rrrather_json["link"].replace("http", "https")
 
     # Message text
