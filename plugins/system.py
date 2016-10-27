@@ -62,18 +62,8 @@ def system(_, update):
     cpu_load_text = "*CPU load*: ", str(cpu_string)
     cpu_text = "".join(cpu_load_text)
 
-    # HDD info such as total HDD space, percentage, and
-    # used HDD space.
-    hdd_usage = psutil.disk_usage('/')
-    hdd_total = round(hdd_usage[0] / 1024 ** 3, 1)
-    hdd_used = round(hdd_usage[1] / 1024 ** 3, 1)
-    hdd_percentage = hdd_usage[3]
-
-    hdd_usage_text = "*HDD usage*: ", str(hdd_percentage), "% (", str(hdd_used), " GB of ", str(hdd_total), " GB)"
-    hdd_text = "".join(hdd_usage_text)
-
     update.message.chat.send_action(action=ChatAction.TYPING)
     update.message.reply_text(parse_mode='Markdown',
                               text="*System Info*:\n\n" + "*OS*: " + os + " " + version + "\n" +
                                    "*Python Version*: " + pyver + "\n" + cpu_cores + "\n" + cpu_text
-                                   + "\n" + hdd_text + "\n" + uptime_text)
+                                   + "\n" + uptime_text)
