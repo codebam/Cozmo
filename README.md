@@ -1,5 +1,5 @@
 # Cozmo
-Cozmo is a Telegram bot coded in Python, and uses the awesome [python-telegram-bot](https://python-telegram-bot.org)  
+Cozmo is a Telegram bot coded in Python, and uses the awesome [python-telegram-bot](https://python-telegram-bot.org) 
 ([Source Code](https://https://github.com/python-telegram-bot/python-telegram-bot)) library as a base. 
 
 **Note**: Cozmo is still in development, and because of this, it may or may not contain bugs. We'll see.
