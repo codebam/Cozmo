@@ -19,23 +19,23 @@ import json
 import requests
 
 
-def rrrather(_, update):
+def wouldyourather(_, update):
     """
     Sends a message containing a question
     from the rrrather website.
     """
-    rrrather_url = "https://www.rrrather.com/botapi"
+    wyr_url = "https://www.rrrather.com/botapi"
 
-    rrrather_request = requests.get(rrrather_url).text
-    rrrather_json = json.loads(rrrather_request)
+    wyr_request = requests.get(wyr_url).text
+    wyr_json = json.loads(wyr_request)
 
     # Variables
-    title = rrrather_json["title"].capitalize().replace(" :", "")
-    choice_a = rrrather_json["choicea"]
-    choice_b = rrrather_json["choiceb"].replace("?", "")
-    votes = '{0:,}'.format(rrrather_json["votes"])
-    tags = rrrather_json["tags"].replace(",", ", ")
-    link = rrrather_json["link"].replace("http", "https")
+    title = wyr_json["title"].capitalize().replace(" :", "")
+    choice_a = wyr_json["choicea"]
+    choice_b = wyr_json["choiceb"].replace("?", "")
+    votes = '{0:,}'.format(wyr_json["votes"])
+    tags = wyr_json["tags"].replace(",", ", ")
+    link = wyr_json["link"].replace("http", "https")
 
     # Message text
     view_text = "*View question on rrrather*"
@@ -55,5 +55,5 @@ def rrrather(_, update):
                                                        view_text,
                                                        link))
     except AttributeError:
-        update.message.reply_text(text="`Error retrieving rrrather question. "
+        update.message.reply_text(text="`Error retrieving an rrrather question. "
                                        "Please try again.`")

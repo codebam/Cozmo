@@ -87,7 +87,7 @@ def main():
     from plugins.fun.xkcd import xkcd_plugin as xkcd
     dp.add_handler(CommandHandler('xkcd', xkcd, pass_args=True))
 
-    from plugins.fun.rrrather import rrrather
+    from plugins.fun.wouldyourather import rrrather
     dp.add_handler(CommandHandler('rrrather', rrrather))
 
     from plugins.id import id_plugin
