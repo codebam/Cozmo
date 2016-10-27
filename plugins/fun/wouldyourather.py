@@ -55,5 +55,5 @@ def wouldyourather(_, update):
                                                        view_text,
                                                        link))
     except AttributeError:
-        update.message.reply_text(text="`Error retrieving an rrrather question. "
-                                       "Please try again.`")
+        update.message.reply_text(text="`Error trying to retrieve a question from "
+                                       "rrather. Please try again.`")
