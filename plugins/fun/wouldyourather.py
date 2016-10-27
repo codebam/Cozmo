@@ -27,7 +27,7 @@ def wouldyourather(_, update):
     Sends a message containing a question
     from the rrrather website.
     """
-    wyr_url = "https://rrrather.com/botapi"
+    wyr_url = "https://www.rrrather.com/botapi"
 
     wyr_request = requests.get(wyr_url).text
     wyr_json = json.loads(wyr_request)
