@@ -26,7 +26,7 @@ from Cozmo import logger
 
 def xkcd_plugin(bot, update, args):
     base_url = "https://xkcd.com/info.0.json"
-    strip_url = 'http://xkcd.com/%s/info.0.json'
+    strip_url = 'https://xkcd.com/%s/info.0.json'
 
     try:
         num = int(args[0])
