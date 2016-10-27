@@ -41,7 +41,9 @@ def rrrather(_, update):
     view_text = "*View question on rrrather*"
     update.message.reply_text(parse_mode='Markdown',
                               disable_web_page_preview=True,
-                              text="{}: {} or {}?\n\n"
+                              text="{}\n"
+                                   "*Choice A*: {}\n"
+                                   "*Choice B*: {}?\n\n"
                                    "*Votes*: {}\n"
                                    "*Tags*: {}\n"
                                    "{}: {}".format(title,
