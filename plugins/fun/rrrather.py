@@ -34,6 +34,7 @@ def rrrather(_, update):
     choice_a = rrrather_json["choicea"]
     choice_b = rrrather_json["choiceb"].replace("?", "")
     votes = '{0:,}'.format(rrrather_json["votes"])
+    tags = rrrather_json["tags"].replace(",", ", ")
     link = rrrather_json["link"].replace("http", "https")
 
     # Message text
@@ -50,7 +51,7 @@ def rrrather(_, update):
                                                        choice_a,
                                                        choice_b,
                                                        votes,
-                                                       rrrather_json["tags"].replace(",", ", "),
+                                                       tags,
                                                        view_text,
                                                        link))
     except AttributeError:
