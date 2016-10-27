@@ -1,4 +1,5 @@
-# Python files
+# Python files and directories
+venv/
 __pycache__/
 plugins/__pycache__/
 utils/__pycache__/
@@ -8,5 +9,3 @@ utils/__pycache__/
 
 # IntelliJ IDEA files
 .idea/
-
-venv/
