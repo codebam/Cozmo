@@ -34,6 +34,7 @@ def rrrather(_, update):
     choice_a = rrrather_json["choicea"]
     choice_b = rrrather_json["choiceb"]
     votes = '{0:,}'.format(rrrather_json["votes"])
+    tags = rrrather_json["tags"]
     link = rrrather_json["link"].replace("http", "https")
 
     # Message text
@@ -42,9 +43,11 @@ def rrrather(_, update):
                               disable_web_page_preview=True,
                               text="{0}: {1} or {2}?\n\n"
                                    "*Votes*: {3}\n"
-                                   "{4}: {5}".format(title,
+                                   "*Tags*: {4}\n"
+                                   "{5}: {6}".format(title,
                                                      choice_a,
                                                      choice_b,
                                                      votes,
+                                                     tags,
                                                      view_text,
                                                      link))
