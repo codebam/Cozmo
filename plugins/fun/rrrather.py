@@ -34,7 +34,7 @@ def rrrather(_, update):
     choice_a = rrrather_json["choicea"]
     choice_b = rrrather_json["choiceb"]
     votes = rrrather_json["votes"]
-    link = rrrather_json["link"]
+    link = rrrather_json["link"].replace("http", "https")
 
     # Message text
     update.message.reply_text(parse_mode='Markdown',
@@ -45,4 +45,4 @@ def rrrather(_, update):
                                                                              choice_a,
                                                                              choice_b,
                                                                              votes,
-                                                                             link.replace("http", "https")))
+                                                                             link))
