@@ -6,9 +6,9 @@
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 
-from init import __version__ as botver
-
 from telegram import ChatAction, ParseMode
+
+from init import __version__ as botver
 
 
 def about(bot, update):

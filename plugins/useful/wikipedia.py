@@ -9,8 +9,8 @@
 import re
 
 import requests
-from requests.utils import quote
 from lxml import etree
+from requests.utils import quote
 from telegram import ChatAction, ParseMode
 
 # Block network access and resolve entities
