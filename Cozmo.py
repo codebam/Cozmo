@@ -19,7 +19,7 @@ from plugins.fun.xkcd import xkcd_plugin as xkcd
 from plugins.info.about import about
 from plugins.info.libraries import libraries
 from plugins.misc.id import id_plugin
-from plugins.misc.linuxkernel import kernel
+from plugins.misc.kernel import kernel
 from plugins.misc.me import me
 from plugins.misc.start import start
 from plugins.shitposts.lenny import lenny
