@@ -12,15 +12,17 @@ def mc_status(_, update):
     Minecraft/Mojang servers and then posts
     the status info as a Telegram message.
     """
+    mcstatus_baseurl = "http://status.mojang.com/check"
+    mcstatus_request = requests.get(mcstatus_baseurl).text
+
     try:
-        mj_status_check = requests.get("http://status.mojang.com/check")
-        mj_status_check.raise_for_status()
+        mcstatus_request
     except (requests.exceptions.HTTPError, requests.exceptions.ConnectionError) as e:
         update.message.reply_text(text="Unable to get Minecraft server status: {}".format(e))
 
     # Take the JSON mojang's status site gives me
     # and turn it into a nice format.
-    data = json.loads(mj_status_check.text.replace("}", "").replace("{", "").replace("]", "}").replace("[", "{"))
+    data = json.loads(mcstatus_request.replace("}", "").replace("{", "").replace("]", "}").replace("[", "{"))
     out = []
 
     # Use a fancy loop so I don't have to update
