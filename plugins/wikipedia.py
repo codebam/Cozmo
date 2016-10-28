@@ -9,6 +9,7 @@
 import re
 
 import requests
+from requests.utils import quote
 from lxml import etree
 from telegram import ChatAction
 
@@ -75,5 +76,5 @@ def wiki(_, update, args):
                               disable_web_page_preview=True,
                               text='{}\n\n'
                                    '*View article on Wikipedia*: {}'.format(description,
-                                                                            requests.utils.quote(url,
-                                                                                                 ':/%')))
+                                                                            quote(url,
+                                                                                  ':/%')))
