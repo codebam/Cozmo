@@ -9,6 +9,10 @@ import random
 
 # Create a variable containing
 # a whole bunch of lenny faces.
+#
+# Generously borrowed from a person
+# who already had this variable created
+# for one of their Python programs.
 lenny_faces = [u'( \u0361\u00B0 \u035C\u0296 \u0361\u00B0)',
                u'( \u0360\u00B0 \u035F\u0296 \u0361\u00B0)',
                u'\u1566( \u0361\xb0 \u035c\u0296 \u0361\xb0)\u1564',
