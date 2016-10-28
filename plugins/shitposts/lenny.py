@@ -7,14 +7,8 @@
 
 import random
 
-"""
-Pfft, most ugly variable ever.
-
-Purposely made ugly.
-
-(Borrowed unicode strings from a lenny
-master)
-"""
+# Create a variable containing
+# a whole bunch of lenny faces.
 lenny_faces = [u'( \u0361\u00B0 \u035C\u0296 \u0361\u00B0)',
                u'( \u0360\u00B0 \u035F\u0296 \u0361\u00B0)',
                u'\u1566( \u0361\xb0 \u035c\u0296 \u0361\xb0)\u1564',
@@ -31,6 +25,8 @@ lenny_faces = [u'( \u0361\u00B0 \u035C\u0296 \u0361\u00B0)',
 
 def lenny(_, update):
     """
-    What am I doing with my life?
+    Returns a lennyface when /lenny is sent to
+    please all those people out there who have
+    a lenny fetish or rather, an obsession.
     """
     update.message.reply_text(text=random.choice(lenny_faces))

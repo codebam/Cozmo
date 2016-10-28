@@ -80,6 +80,7 @@ def main():
 
     # Register plugins and their applicable commands.
     logger.info("Starting plugin loading sequence.")
+
     dp.add_handler(CommandHandler('about', about))
     dp.add_handler(CommandHandler('libraries', libraries))
     dp.add_handler(CommandHandler('me', me, pass_args=True))
@@ -90,8 +91,8 @@ def main():
     dp.add_handler(CommandHandler('wiki', wiki, pass_args=True))
     dp.add_handler(CommandHandler('start', start))
     dp.add_handler(CommandHandler('system', system))
-    # Pure shitposting right here...
     dp.add_handler(CommandHandler('lenny', lenny))
+
     logger.info("Plugin loading sequence complete. All plugins loaded.")
 
     def error(_, update, err):
