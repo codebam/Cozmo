@@ -74,7 +74,9 @@ def wiki(_, update, args):
     update.message.chat.send_action(ChatAction.TYPING)
     update.message.reply_text(parse_mode='Markdown',
                               disable_web_page_preview=True,
-                              text='{}\n\n'
-                                   '*View article on Wikipedia*: {}'.format(description,
+                              text='*Wikipedia information for {}*:\n\n'
+                                   '_{}_\n\n'
+                                   '*View article on Wikipedia*: {}'.format(args,
+                                                                            description,
                                                                             quote(url,
                                                                                   ':/%')))
