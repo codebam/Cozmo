@@ -17,7 +17,7 @@ from util import formatting
 # Do this for security reasons
 parser = etree.XMLParser(resolve_entities=False, no_network=True)
 
-api_prefix = "http://en.wikipedia.org/w/api.php"
+api_prefix = "https://en.wikipedia.org/w/api.php"
 search_url = api_prefix + "?action=opensearch&format=xml"
 random_url = api_prefix + "?action=query&format=xml&list=random&rnlimit=1&rnnamespace=0"
 
@@ -67,8 +67,9 @@ def wiki(_, update, args):
         desc = title + desc
 
     desc = ' '.join(desc.split())  # remove excess spaces
-    desc = formatting.truncate(desc, 200)
+    desc = formatting.truncate(desc, 450)
 
+    update.message.chat.send_action(ChatAction.TYPING)
     update.message.reply_text(parse_mode='Markdown',
                               text='{}\n\n '
                                    '*View article on Wikipedia*: {}'.format(desc, requests.utils.quote(url, ':/%')))
