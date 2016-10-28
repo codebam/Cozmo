@@ -7,8 +7,8 @@
 # (at your option) any later version.
 
 import re
-import requests
 
+import requests
 from telegram import ParseMode
 
 
