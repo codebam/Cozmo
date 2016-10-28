@@ -78,7 +78,7 @@ def main():
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
 
-    # Register plugins and their commands
+    # Register plugins and their applicable commands.
     logger.info("Starting plugin loading sequence.")
     dp.add_handler(CommandHandler('about', about))
     dp.add_handler(CommandHandler('libraries', libraries))
