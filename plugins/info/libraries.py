@@ -7,7 +7,8 @@
 # (at your option) any later version.
 
 from requests import __version__ as reqsver
-from telegram import (__version__ as tgver, ParseMode)
+from telegram import (__version__ as tgver, ChatAction,
+                      ParseMode)
 
 
 def libraries(bot, update):
@@ -16,8 +17,8 @@ def libraries(bot, update):
     the libraries the bot uses.
     """
     get_me = bot.getMe().first_name
-    update.message.chat.send_action(action=ParseMode.MARKDOWN)
-    update.message.reply_text(parse_mode='Markdown',
+    update.message.chat.send_action(action=ChatAction.TYPING)
+    update.message.reply_text(parse_mode=ParseMode.MARKDOWN,
                               text="*{}* runs on a number of libraries. The names and "
                                    "versions of the libraries we use are listed below.\n\n"
                                    "*python-telegram-bot*: {}\n"
