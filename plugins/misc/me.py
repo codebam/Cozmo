@@ -6,15 +6,12 @@
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 
-from telegram import ChatAction
+from telegram import ChatAction, ParseMode
 
 
-def start(bot, update):
-    """
-    Create a basic start command. Nothing fancy
-    here folks.
-    """
+def me(_, update, args):
+    args = ' '.join(args)
+    user = update.message.from_user.first_name
     update.message.chat.send_action(action=ChatAction.TYPING)
-    update.message.reply_text(parse_mode='Markdown',
-                              text="Hi, I'm *{0}*! Please enter /about to view information about me.".format(
-                                  bot.getMe().first_name))
+    update.message.reply_text(parse_mode=ParseMode.MARKDOWN,
+                              text='*{0}* {1}'.format(user, args))

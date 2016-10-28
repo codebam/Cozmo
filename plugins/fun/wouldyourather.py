@@ -9,7 +9,7 @@
 import json
 
 import requests
-from telegram import ChatAction
+from telegram import ChatAction, ParseMode
 
 
 def wouldyourather(_, update):
@@ -39,7 +39,7 @@ def wouldyourather(_, update):
 
     try:
         update.message.chat.send_action(action=ChatAction.TYPING)
-        update.message.reply_text(parse_mode='Markdown',
+        update.message.reply_text(parse_mode=ParseMode.MARKDOWN,
                                   disable_web_page_preview=True,
                                   text="{}:\n"
                                        "*Choice A*: {}\n"

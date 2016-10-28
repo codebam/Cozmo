@@ -6,7 +6,7 @@
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 
-from telegram import ChatAction
+from telegram import ChatAction, ParseMode
 
 
 def id_plugin(_, update):
@@ -18,7 +18,7 @@ def id_plugin(_, update):
     uid = update.message.from_user.id
 
     update.message.chat.send_action(action=ChatAction.TYPING)
-    update.message.reply_text(parse_mode='Markdown',
+    update.message.reply_text(parse_mode=ParseMode.MARKDOWN,
                               quote=True,
                               text="You are *{0}* with ID `{1}`.".format(name,
                                                                          uid))

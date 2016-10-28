@@ -9,7 +9,7 @@
 import json
 
 import requests
-from telegram import ChatAction
+from telegram import ChatAction, ParseMode
 
 
 def xkcd_plugin(_, update, args):
@@ -32,7 +32,7 @@ def xkcd_plugin(_, update, args):
     except ValueError:
         # Send an error message if the ID format is wrong.
         update.message.chat.send_action(action=ChatAction.TYPING)
-        update.message.reply_text(parse_mode='Markdown',
+        update.message.reply_text(parse_mode=ParseMode.MARKDOWN,
                                   text="*Error*: Improper format of xkcd ID. IDs are numeric. Please "
                                        "enter a numeric ID.\n\n"
                                        "*Example xkcd ID*: 378")

@@ -74,7 +74,7 @@ def main():
     from plugins.info.libraries import libraries
     dp.add_handler(CommandHandler('libraries', libraries))
 
-    from plugins.me import me
+    from plugins.misc.me import me
     dp.add_handler(CommandHandler('me', me, pass_args=True))
 
     from plugins.fun.xkcd import xkcd_plugin as xkcd
@@ -83,13 +83,16 @@ def main():
     from plugins.fun.wouldyourather import wouldyourather
     dp.add_handler(CommandHandler('wyr', wouldyourather))
 
-    from plugins.id import id_plugin
+    from plugins.misc.linuxkernel import kernel
+    dp.add_handler(CommandHandler('linux', kernel))
+
+    from plugins.misc.id import id_plugin
     dp.add_handler(CommandHandler('id', id_plugin))
 
-    from plugins.wikipedia import wiki
+    from plugins.useful.wikipedia import wiki
     dp.add_handler(CommandHandler('wiki', wiki, pass_args=True))
 
-    from plugins.start import start
+    from plugins.misc.start import start
     dp.add_handler(CommandHandler('start', start))
 
     from plugins.util.system import system

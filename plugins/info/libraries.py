@@ -6,8 +6,8 @@
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 
-from telegram import (__version__ as tgver, ChatAction)
 from requests import __version__ as reqsver
+from telegram import (__version__ as tgver, ParseMode)
 
 
 def libraries(bot, update):
@@ -16,7 +16,7 @@ def libraries(bot, update):
     the libraries the bot uses.
     """
     get_me = bot.getMe().first_name
-    update.message.chat.send_action(action=ChatAction.TYPING)
+    update.message.chat.send_action(action=ParseMode.MARKDOWN)
     update.message.reply_text(parse_mode='Markdown',
                               text="*{}* runs on a number of libraries. The names and "
                                    "versions of the libraries we use are listed below.\n\n"

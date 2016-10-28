@@ -9,7 +9,7 @@
 import platform
 
 import psutil
-from telegram import ChatAction
+from telegram import ChatAction, ParseMode
 from uptime import uptime
 
 
@@ -55,7 +55,7 @@ def system(_, update):
     cpu_text = "".join(cpu_load_text)
 
     update.message.chat.send_action(action=ChatAction.TYPING)
-    update.message.reply_text(parse_mode='Markdown',
+    update.message.reply_text(parse_mode=ParseMode.MARKDOWN,
                               text="*System Info*:\n\n" + "*OS*: " + os + " " + version + "\n" +
                                    "*Python Version*: " + pyver + "\n" + cpu_cores + "\n" + cpu_text
                                    + "\n" + uptime_text)
