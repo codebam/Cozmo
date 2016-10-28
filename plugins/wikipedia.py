@@ -72,11 +72,11 @@ def wiki(_, update, args):
     description = formatting.truncate(description, 450)
 
     update.message.chat.send_action(ChatAction.TYPING)
-    update.message.reply_text(parse_mode='Markdown',
+    update.message.reply_text(parse_mode='HTML',
                               disable_web_page_preview=True,
-                              text='*Wikipedia information for {}*:\n\n'
-                                   '_{}_\n\n'
-                                   '*View article on Wikipedia*: {}'.format(args,
-                                                                            description,
-                                                                            quote(url,
-                                                                                  ':/%')))
+                              text='<b>Wikipedia information for {}</b>:\n\n'
+                                   '<i>{}</i>\n\n'
+                                   '<b>View article on Wikipedia</b>: {}'.format(args,
+                                                                                 description,
+                                                                                 quote(url,
+                                                                                       ':/%')))
