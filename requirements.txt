@@ -3,3 +3,4 @@ uptime
 python-telegram-bot
 psutil
 requests
+sqlalchemy

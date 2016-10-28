@@ -41,12 +41,10 @@ def xkcd_plugin(_, update, args):
         xkcd = requests.get(base_url).text
         xkcd = json.loads(xkcd)
 
-        num = xkcd['num']
-
         title = xkcd['title']
-        alt = xkcd['alt']
+        alt = xkcd['alt'][:168] + "..."
 
-        caption = '{0} - {1} - {2}'.format(num, title, alt)
+        caption = '{0} - {1}'.format(title, alt)
 
         update.message.chat.send_action(action=ChatAction.UPLOAD_PHOTO)
         update.message.reply_photo(photo=xkcd['img'],

@@ -12,13 +12,13 @@ import sys
 from configparser import ConfigParser
 from os.path import exists
 
-from telegram.ext import CommandHandler, Updater
+from telegram.ext import (CommandHandler, Updater)
 
 from plugins.fun.wouldyourather import wouldyourather
-from plugins.minecraft.mcstatus import mc_status
 from plugins.fun.xkcd import xkcd_plugin as xkcd
 from plugins.info.about import about
 from plugins.info.libraries import libraries
+from plugins.minecraft.mcstatus import mc_status
 from plugins.misc.id import id_plugin
 from plugins.misc.kernel import kernel
 from plugins.misc.me import me

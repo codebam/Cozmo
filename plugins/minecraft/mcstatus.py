@@ -8,11 +8,11 @@ from telegram.ext.dispatcher import run_async
 @run_async
 def mc_status(_, update):
     """
-    This plugin fetches the status of various
-    Minecraft/Mojang servers and then posts
-    the status info as a Telegram message.
+    This plugin fetches the status of the Minecraft/Mojang
+    servers and then posts the retrieved status information
+    as a Telegram message.
     """
-    mcstatus_baseurl = "http://status.mojang.com/check"
+    mcstatus_baseurl = "https://status.mojang.com/check"
     mcstatus_request = requests.get(mcstatus_baseurl).text
 
     try:
@@ -20,7 +20,7 @@ def mc_status(_, update):
     except (requests.exceptions.HTTPError, requests.exceptions.ConnectionError) as e:
         update.message.reply_text(text="Unable to get Minecraft server status: {}".format(e))
 
-    # Take the JSON mojang's status site gives me
+    # Take the JSON Mojang's status site gives me
     # and turn it into a nice format.
     data = json.loads(mcstatus_request.replace("}", "").replace("{", "").replace("]", "}").replace("[", "{"))
     out = []
