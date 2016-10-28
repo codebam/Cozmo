@@ -4,11 +4,13 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
+
 import random
 
-
 """
-Pfft, most ugly code ever.
+Pfft, most ugly variable ever.
+
+Purposely made ugly
 
 (Borrowed unicode strings from a lenny
 master)
