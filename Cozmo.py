@@ -86,6 +86,9 @@ def main():
     from plugins.id import id_plugin
     dp.add_handler(CommandHandler('id', id_plugin))
 
+    from plugins.wikipedia import wiki
+    dp.add_handler(CommandHandler('wiki', wiki, pass_args=True))
+
     from plugins.start import start
     dp.add_handler(CommandHandler('start', start))
 

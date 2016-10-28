@@ -1,3 +1,4 @@
+lxml
 uptime
 python-telegram-bot
 psutil
