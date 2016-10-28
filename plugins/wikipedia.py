@@ -70,5 +70,6 @@ def wiki(_, update, args):
     desc = formatting.truncate(desc, 200)
 
     update.message.reply_text(parse_mode='Markdown',
-                              text='{}\n\n '
+                              disable_web_page_preview=True,
+                              text='{}\n\n'
                                    '*View article on Wikipedia*: {}'.format(desc, requests.utils.quote(url, ':/%')))
