@@ -97,6 +97,10 @@ def main():
 
     from plugins.util.system import system
     dp.add_handler(CommandHandler('system', system))
+
+    # Pure shitposting right here...
+    from plugins.shitposts.lenny import lenny
+    dp.add_handler(CommandHandler('lenny', lenny))
     logger.info("Plugin loading sequence complete. All plugins loaded.")
 
     def error(_, update, err):
