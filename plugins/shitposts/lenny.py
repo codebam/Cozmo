@@ -10,7 +10,7 @@ import random
 """
 Pfft, most ugly variable ever.
 
-Purposely made ugly
+Purposely made ugly.
 
 (Borrowed unicode strings from a lenny
 master)
