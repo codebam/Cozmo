@@ -46,7 +46,8 @@ def wiki(_, update, args):
         if x.find('error') is not None:
             update.message.chat.send_action(action=ChatAction.TYPING)
             update.message.reply_text(parse_mode='Markdown',
-                                      text='Could not get Wikipedia page: %(code)s: %(info)s' % x.find('error').attrib)
+                                      text='Could not get Wikipedia page due to an error.\n\n'
+                                           '*Error*: `%(code)s: %(info)s`' % x.find('error').attrib)
         else:
             update.message.chat.send_action(action=ChatAction.TYPING)
             update.message.reply_text(parse_mode='Markdown',
@@ -56,21 +57,23 @@ def wiki(_, update, args):
         return [item.find(ns + i).text for i in
                 ('Text', 'Description', 'Url')]
 
-    title, desc, url = extract(items[0])
+    title, description, url = extract(items[0])
 
-    if 'may refer to' in desc:
-        title, desc, url = extract(items[1])
+    if 'may refer to' in description:
+        title, description, url = extract(items[1])
 
     title = paren_re.sub('', title)
 
-    if title.lower() not in desc.lower():
-        desc = title + desc
+    if title.lower() not in description.lower():
+        description = title + description
 
-    desc = ' '.join(desc.split())  # remove excess spaces
-    desc = formatting.truncate(desc, 450)
+    description = ' '.join(description.split())  # remove excess spaces
+    description = formatting.truncate(description, 450)
 
     update.message.chat.send_action(ChatAction.TYPING)
     update.message.reply_text(parse_mode='Markdown',
                               disable_web_page_preview=True,
                               text='{}\n\n'
-                                   '*View article on Wikipedia*: {}'.format(desc, requests.utils.quote(url, ':/%')))
+                                   '*View article on Wikipedia*: {}'.format(description,
+                                                                            requests.utils.quote(url,
+                                                                                                 ':/%')))
