@@ -15,6 +15,7 @@ from os.path import exists
 from telegram.ext import CommandHandler, Updater
 
 from plugins.fun.wouldyourather import wouldyourather
+from plugins.minecraft.mcstatus import mc_status
 from plugins.fun.xkcd import xkcd_plugin as xkcd
 from plugins.info.about import about
 from plugins.info.libraries import libraries
@@ -86,6 +87,7 @@ def main():
     dp.add_handler(CommandHandler('me', me, pass_args=True))
     dp.add_handler(CommandHandler('xkcd', xkcd, pass_args=True))
     dp.add_handler(CommandHandler('wyr', wouldyourather))
+    dp.add_handler(CommandHandler('mcstatus', mc_status))
     dp.add_handler(CommandHandler('linux', kernel))
     dp.add_handler(CommandHandler('id', id_plugin))
     dp.add_handler(CommandHandler('wiki', wiki, pass_args=True))

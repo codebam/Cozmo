@@ -56,6 +56,5 @@ def wouldyourather(_, update):
     except AttributeError:
         update.message.chat.send_action(ChatAction.TYPING)
         update.message.reply_text(text="`Error trying to retrieve a would you rather "
-                                       "question due to an AttributeError or a connection "
-                                       "problem with the rrrather json API. Please try "
+                                       "question due to an AttributeError. Please try "
                                        "again later.`")
