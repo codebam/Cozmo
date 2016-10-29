@@ -24,7 +24,6 @@ from plugins.misc.kernel import kernel
 from plugins.misc.me import me
 from plugins.misc.start import start
 from plugins.shitposts.lenny import lenny
-from plugins.useful.wikipedia import wiki
 from plugins.util.system import system
 
 # Require Python version to be 3.4 or higher.
@@ -90,7 +89,6 @@ def main():
     dp.add_handler(CommandHandler('mcstatus', mc_status))
     dp.add_handler(CommandHandler('linux', kernel))
     dp.add_handler(CommandHandler('id', id_plugin))
-    dp.add_handler(CommandHandler('wiki', wiki, pass_args=True))
     dp.add_handler(CommandHandler('start', start))
     dp.add_handler(CommandHandler('system', system))
     dp.add_handler(CommandHandler('lenny', lenny))
